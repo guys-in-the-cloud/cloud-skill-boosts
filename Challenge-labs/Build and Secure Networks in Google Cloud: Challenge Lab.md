@@ -64,9 +64,9 @@ gcloud compute instances add-tags juice-shop --tags=$SSH_INTERNAL_NETWORK_TAG --
 ```
 
 ## Task 6 : SSH to bastion host via IAP and juice-shop via bastion
-
+```
 gcloud compute ssh --zone "us-central1-b" "bastion"  --tunnel-through-iap --project $DEVSHELL_PROJECT_ID
-
+```
 If prompted, please type yes & then enter two times. You'll see you're successfully login to the bastion VM
 
 Now, Validate our Internal SSH firewall rule working file, so for that let's SSH to juice-shop VM from bastion.
