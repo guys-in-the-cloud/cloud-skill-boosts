@@ -7,9 +7,9 @@ export FIREWALL_RULE_NAME=<firewall_rule_name_given_in_the_lab_instructions>
 ########### Task 1 ###################
 
 gcloud compute instances create $VM_NAME \
---zone=us-east1-a \
---image=projects/debian-cloud/global/images/debian-10-buster-v20220406 \
---machine-type=f1-micro
+--zone=us-east1-b \
+--machine-type=f1-micro \
+--image=projects/debian-cloud/global/images/debian-10-buster-v20220406 
 
 ########### Task 2 ###################
 
