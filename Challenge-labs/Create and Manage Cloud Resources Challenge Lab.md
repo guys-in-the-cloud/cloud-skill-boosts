@@ -7,7 +7,7 @@
 ```
 export VM_NAME=
 ```
-example variable defination - <mark> export VM_NAME=<vm_name_given_in_the_lab_instructions> </mark>
+example variable defination - export VM_NAME=<vm_name_given_in_the_lab_instructions> 
 
 ```
 export PORT=
