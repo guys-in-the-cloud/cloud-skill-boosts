@@ -2,18 +2,13 @@
 export VM_NAME=
 ```
 ```
-export Zone= 
+export ZONE= 
 ```
 ```
 gcloud compute instances create $VM_NAME \
-  --zone=$Zone
-  --image-project=debian-cloud \
-  --image-family=debian-10 \
-  --metadata=startup-script='#! /bin/bash \
-  --network-interface=network-tier=PREMIUM \
-  --tags=http-server,https-server
-  apt update
-  apt -y install apache2
-  cat <<EOF > /var/www/html/index.html
-  <html><body><p>Linux startup script added directly.</p></body></html>'
+--zone=$ZONE \
+--machine-type=e2-medium \
+--tags=http-server,https-server \
+--image=projects/debian-cloud/global/images/debian-10-buster-v20220406 \
+--metadata=startup-script=\#\!\ /bin/bash$'\n'apt-get\ update$'\n'apt-get\ install\ apache2\ -y$'\n'service\ --status-all$'\n' 
   ```
