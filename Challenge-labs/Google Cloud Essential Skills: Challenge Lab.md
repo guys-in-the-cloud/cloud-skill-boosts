@@ -1,9 +1,14 @@
+# Google Cloud Essential Skills: Challenge Lab
 ```
 export VM_NAME=
 ```
+ example variable defination - export VM_NAME=<tag_given_in_the_lab_instructions>>
 ```
 export ZONE= 
 ```
+ example variable defination - export ZONE=<tag_given_in_the_lab_instructions>
+
+## Create a Linux VM Instance
 ```
 gcloud compute instances create $VM_NAME \
 --zone=$ZONE \
