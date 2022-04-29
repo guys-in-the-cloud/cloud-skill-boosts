@@ -1,5 +1,9 @@
 # Google Cloud Essential Skills: Challenge Lab
 [YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
+
+
+## Let's start with defining some variables given by Cloud Skill Boosts
+
 ```
 export VM_NAME=
 ```
@@ -23,4 +27,8 @@ gcloud compute instances create $VM_NAME \
 --metadata=startup-script=\#\!\ /bin/bash$'\n'apt-get\ update$'\n'apt-get\ install\ apache2\ -y$'\n'service\ --status-all$'\n' 
   ```
 ## Task3 Test your server
-Hit the External ip of vm 
+```
+gcloud compute instances describe $VM_NAME \
+  --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
+```
+
