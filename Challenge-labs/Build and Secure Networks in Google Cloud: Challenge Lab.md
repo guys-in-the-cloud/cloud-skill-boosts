@@ -1,6 +1,6 @@
 # Build and Secure Networks in Google Cloud - Challenge Lab
 
-[YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
+[YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
