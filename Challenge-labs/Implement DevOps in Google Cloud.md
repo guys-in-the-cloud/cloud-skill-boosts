@@ -1,6 +1,14 @@
 # Implement DevOps in Google Cloud
 [YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
 
+## Let's start with defining some variables given by Cloud Skill Boosts
+```
+export COLOUR=
+```
+
+```
+export VERSION=
+```
 
 ## Task1 Check Jenkins pipeline has been configured
 ```
@@ -29,6 +37,9 @@ export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/com
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
+
+- configure Credential 
+- Create Multibranch pipeline of sample-app 
 ## Task2 Check that Jenkins has deployed a development pipeline
 ```
 cd sample-app
@@ -36,6 +47,12 @@ kubectl create ns production
 kubectl apply -f k8s/production -n production
 kubectl apply -f k8s/canary -n production
 kubectl apply -f k8s/services -n production
+```
+```
+sed -i "s/blue/$COLOUR/g" html.go
+```
+```
+sed -i "s/1.0.0/$VERSION/g" main.go
 ```
 ```
 kubectl get svc
