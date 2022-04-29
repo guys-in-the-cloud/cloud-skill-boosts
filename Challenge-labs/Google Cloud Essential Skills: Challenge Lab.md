@@ -1,4 +1,5 @@
 # Google Cloud Essential Skills: Challenge Lab
+[YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
 ```
 export VM_NAME=
 ```
@@ -8,11 +9,11 @@ export ZONE=
 ```
 example variable defination - export ZONE=<tag_given_in_the_lab_instructions>
 
-## Create a firewall rule to allow traffic on port 80 for last check
+## Task1 Create a Compute Engine instance, add necessary firewall rules.
 ```
 gcloud compute firewall-rules create http-ingress --allow=tcp:80 --source-ranges 0.0.0.0/0 --target-tags http-server --network default
 ```
-## Create a Linux VM Instance
+## Task2 Configure Apache2 Web Server in your instance
 ```
 gcloud compute instances create $VM_NAME \
 --zone=$ZONE \
@@ -21,3 +22,5 @@ gcloud compute instances create $VM_NAME \
 --image=projects/debian-cloud/global/images/debian-10-buster-v20220406 \
 --metadata=startup-script=\#\!\ /bin/bash$'\n'apt-get\ update$'\n'apt-get\ install\ apache2\ -y$'\n'service\ --status-all$'\n' 
   ```
+## Task3 Test your server
+Hit the External ip of vm 
