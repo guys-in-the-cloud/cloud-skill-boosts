@@ -19,6 +19,17 @@ example variable defination - export Tag Name= <Tag Name>
 export Updated Version=
 ```
 example variable defination - export Updated Version=<Updated Version>
+
+  ```
+  export Your_email=
+  ```
+example variable defination -  export Your_email= <you@example.com>
+  
+  ```
+  export User_name=
+  ```
+example variable defination - export User_name= <student5674..>
+  
   
 ## Task 1: Create a Docker image and store the Dockerfile
   ```
@@ -79,7 +90,7 @@ kubectl create -f k8s/service.yaml
   ```
   docker ps
   docker kill <container id>
-  
+  ```
   export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
