@@ -34,7 +34,11 @@ gcloud pubsub topics create $TOPIC_NAME
 
 ## Task 3: Create the thumbnail Cloud Function
 
-1. Create a function with name thumbnail
+3.1 Replacing the variable with REPLACE_WITH_YOUR_TOPIC ID 
+```
+sed -i "s/REPLACE_WITH_YOUR_TOPIC ID/$TOPIC_NAME/g" index.js
+```
+3.2 Create a function with name thumbnail
 ```
 gcloud functions deploy thumbnail \
     --entry-point thumbnail \
