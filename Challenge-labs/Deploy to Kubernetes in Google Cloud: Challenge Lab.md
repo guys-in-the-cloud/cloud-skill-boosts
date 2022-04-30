@@ -58,12 +58,29 @@ EOF
 ```
 docker build -t ${DOCKER_IMAGE}:${TAG_NAME} .
 ```
-1.4 run the clone script
+1.4 verify the docker image existence for check point by running the step1_v2.sh script file
 ```
 cd ..
 cd marking
 ./step1_v2.sh
 ```
+Image exists<br>
+Go ahead and check the activity tracking on the lab page
+  
+1.5 run the created docker conatiner image and map this to port number 8080 with the host 
+```
+docker run -dit -p 8080:8080 ${DOCKER_IMAGE}:${TAG_NAME}
+```
+  
+1.6 verify the docker image running status for check point by running the step2_v2.sh script file
+```
+./step2_v2.sh 
+```
+you should see this output 
+
+Container running and visible on port 8080, good job! <br>
+Go ahead and check the activity tracking on the lab page
+
 ## Task 3: Push the Docker image in the Google Container Repository
 ```
 cd ..
@@ -99,10 +116,12 @@ kubectl create -f k8s/service.yaml
   docker ps
   docker kill <container id>
   ```
+  ```
   export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
  ```
+  
   Go through the following:
 
 -> Manage Jenkins -> Manage Credentials -> Jenkins -> Global credentials (unrestricted) -> Add credentials -> Kind: Google Service Account from metadata -> OK
@@ -114,6 +133,7 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
 -> Repository URL: {find it using command: gcloud source repos list} -> Credentials: {Project id}
 
 -> Apply -> Save
+  
   
   ```
   sed -i "s/green/orange/g" source/html.go
