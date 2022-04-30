@@ -29,7 +29,6 @@ export UPDATED_VERSION=
 ```
 example variable defination - export Updated Version=<Updated Version>
 
-  
 ```
 export REPLICAS_COUNT=
 ```
@@ -88,6 +87,7 @@ kubectl create -f k8s/service.yaml
   
   ## ### change <Tag Name> to <Updated Version> in two places
   
+  ```
   ```
   docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}.
   docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}
