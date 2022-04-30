@@ -45,7 +45,7 @@ gcloud compute firewall-rules create fw-ssh-prod --source-ranges=0.0.0.0/0 --tar
 ## Task - 4 : Create and configure Cloud SQL Instance
 
 ```
-gcloud sql instances create griffin-dev-db --root-password password --region=us-east1
+gcloud sql instances create griffin-dev-db1 --root-password password --region=us-east1 --database-version=MYSQL_5_7
 
 gcloud sql connect griffin-dev-db
 
