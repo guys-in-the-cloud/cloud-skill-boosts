@@ -49,10 +49,11 @@ sed -i "s/REPLACE_WITH_YOUR_TOPIC ID/$TOPIC_NAME/g" index.js
 ```
 3.2 Create a function with name thumbnail
 ```
-gcloud functions deploy thumbnail \
+gcloud functions deploy $CLOUDFUNCTION_NAME \
     --entry-point thumbnail \
+    --runtime nodejs12 \
     --trigger-bucket $BUCKET_NAME \
-    --runtime nodejs10
+    --region us-east1
 ```
 2. Testing cloud function working by uploading given file into the bucket 
 
