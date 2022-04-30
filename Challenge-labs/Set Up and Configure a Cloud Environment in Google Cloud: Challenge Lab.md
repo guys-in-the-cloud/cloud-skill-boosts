@@ -95,7 +95,7 @@ kubectl create secret generic cloudsql-instance-credentials \
 ```
 ## Task - 7 : Create a WordPress deployment
 ```
-sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-k8s/wp-deployment.yaml
+sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-deployment.yaml
 ```
 ```
 kubectl create -f wp-deployment.yaml
@@ -116,5 +116,6 @@ Path : /</b>
 - Next -> Next -> Create
 
 ## Task - 9 : Provide access for an additional engineer
-
+```
 gcloud projects add-iam-policy-binding $ID --member=user:<user-2> --role=roles/editor
+```
