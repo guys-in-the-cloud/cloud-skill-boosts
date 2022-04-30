@@ -116,9 +116,10 @@ kubectl apply -f k8s/deployment.yaml
   Task - 6 : Create a pipeline in Jenkins to deploy your app
   
   ```
-  docker ps
-  docker kill <container id>
   ```
+  docker rm -f $(docker ps -aq)
+```
+  
   ```
   export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
