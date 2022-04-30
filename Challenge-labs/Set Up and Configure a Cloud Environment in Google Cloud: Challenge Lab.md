@@ -73,9 +73,22 @@ gsutil cp -r gs://cloud-training/gsp321/wp-k8s .
 ```
 
 ## Task - 6 : Prepare the Kubernetes cluster
+```
+sed -i "s/username_goes_here/wp_user/g" wp-k8s/wp-env.yaml
+sed -i "s/username_goes_here/stormwind_rules/g" wp-k8s/wp-env.yaml
+```
 
-sed -i "s/1.0.0/$VERSION/g" main.go
+```
+cd wp-k8s
 
+kubectl create -f wp-env.yaml
+
+gcloud iam service-accounts keys create key.json \
+    --iam-account=cloud-sql-proxy@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
+kubectl create secret generic cloudsql-instance-credentials \
+    --from-file key.json
+
+```
 
 
 
