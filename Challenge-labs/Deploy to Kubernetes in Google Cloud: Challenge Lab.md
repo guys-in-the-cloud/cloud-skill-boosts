@@ -6,17 +6,12 @@
 ## Defining some variables given by Cloud Skill Boosts
 
 ```
-export Docker_Image=
+export DOCKER_IMAGE=
 ```
 example variable defination - export Docker_Image=<Docker Image>
 
 ```
-export Tag Name= 
-```
-example variable defination - export Tag Name= <Tag Name>
-
-```
-export Updated Version=
+export DOCKER_IMAGE_UPDATED_VERSION=
 ```
 example variable defination - export Updated Version=<Updated Version>
 
@@ -50,7 +45,7 @@ EOF
 ```
  Building image  
 ```
-docker build -t $Docker_Image:$Tag Name .
+docker build -t {$DOCKER_IMAGE} .
 ```
 ```
 cd ..
@@ -61,12 +56,12 @@ cd marking
 ```
 cd ..
 cd valkyrie-app
-docker tag $Docker_Image:$Tag Name gcr.io/$GOOGLE_CLOUD_PROJECT/$Docker_Image:$Tag Name
-docker push gcr.io/$GOOGLE_CLOUD_PROJECT/$Docker_Image:$Tag Name
+docker tag $Docker_Image:$Tag Name gcr.io/$GOOGLE_CLOUD_PROJECT/{$DOCKER_IMAGE}
+docker push gcr.io/$GOOGLE_CLOUD_PROJECT/{$DOCKER_IMAGE}
 ```
 Task - 4 : Create and expose a deployment in Kubernetes
 ```
-sed -i s#IMAGE_HERE#gcr.io/$GOOGLE_CLOUD_PROJECT/$Docker_Image:$Tag Name#g k8s/deployment.yaml
+sed -i s#IMAGE_HERE#gcr.io/$GOOGLE_CLOUD_PROJECT/{$DOCKER_IMAGE} Name#g k8s/deployment.yaml
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
@@ -81,8 +76,8 @@ kubectl create -f k8s/service.yaml
   ## ### change <Tag Name> to <Updated Version> in two places
   
   ```
-  docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/$Docker_Image:$Updated Version.
-  docker push gcr.io/$GOOGLE_CLOUD_PROJECT/$Docker_Image:$Updated Version
+  docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/{DOCKER_IMAGE_UPDATED_VERSION}.
+  docker push gcr.io/$GOOGLE_CLOUD_PROJECT/{DOCKER_IMAGE_UPDATED_VERSION}
   ```
   
   Task - 6 : Create a pipeline in Jenkins to deploy your app
