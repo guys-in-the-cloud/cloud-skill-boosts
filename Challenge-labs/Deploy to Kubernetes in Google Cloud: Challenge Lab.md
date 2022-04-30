@@ -56,7 +56,7 @@ cd marking
 ```
 cd ..
 cd valkyrie-app
-docker tag $Docker_Image:$Tag Name gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}
+docker tag ${DOCKER_IMAGE} gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}
 docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}
 ```
 Task - 4 : Create and expose a deployment in Kubernetes
