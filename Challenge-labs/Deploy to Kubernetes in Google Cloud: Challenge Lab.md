@@ -85,29 +85,32 @@ Go ahead and check the activity tracking on the lab page
 ```
 cd ..
 cd valkyrie-app
-docker tag ${DOCKER_IMAGE} gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}
+docker tag ${DOCKER_IMAGE}:${TAG_NAME} gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}
 docker push gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}
 ```
 Task - 4 : Create and expose a deployment in Kubernetes
 ```
-sed -i s#IMAGE_HERE#gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE} Name#g k8s/deployment.yaml
+sed -i s#IMAGE_HERE#gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}#g k8s/deployment.yaml
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
 ```
-  Task - 5 : Update the deployment with a new version of valkyrie-app
- ```
-  git merge origin/kurt-dev
-  kubectl edit deployment valkyrie-dev
+Task - 5 : Update the deployment with a new version of valkyrie-app
+```
+git merge origin/kurt-dev
+sed -i "s/replicas: 1/replicas: $REPLICAS_COUNT/g" k8s/deployment.yaml
+kubectl apply -f k8s/deployment.yaml
+```
   
-  ## Edit Replicas from 1 to replicas given in lab manual 1 to <Replicas Count>
-  
-  ## ### change <Tag Name> to <Updated Version> in two places
-  
+ 
+  ```
+  docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}:${UPDATED_VERSION} .
+  docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}:${UPDATED_VERSION}
   ```
   ```
-  docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}.
-  docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}
+  ```
+  sed -i s#${TAG_NAME}#${UPDATED_VERSION}#g k8s/deployment.yaml
+  kubectl apply -f k8s/deployment.yaml
   ```
   
   Task - 6 : Create a pipeline in Jenkins to deploy your app
@@ -136,10 +139,10 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
   
   
   ```
-  sed -i "s/green/orange/g" source/html.go
+sed -i "s/green/orange/g" source/html.go
 sed -i "s/YOUR_PROJECT/$GOOGLE_CLOUD_PROJECT/g" Jenkinsfile
-git config --global user.email "you@example.com"              // Email
-git config --global user.name "student..."                       // Username
+git config --global user.email "${YOUR_EMAIL}"              
+git config --global user.name "${USERNAME}"                 
 git add .
 git commit -m "built pipeline init"
 git push
