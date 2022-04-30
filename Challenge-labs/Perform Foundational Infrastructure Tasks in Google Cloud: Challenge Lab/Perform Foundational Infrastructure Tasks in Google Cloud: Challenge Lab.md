@@ -21,6 +21,15 @@ Defining username variable
 export USERNAME2=
 ```
 
+## Downloading index.js and package.json file we will use this while creating cloud function 
+
+```
+wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Perform%20Foundational%20Infrastructure%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab/index.js
+
+wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Perform%20Foundational%20Infrastructure%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab/package.json
+
+```
+
 ## Task 1: Create a bucket
 
 ```
