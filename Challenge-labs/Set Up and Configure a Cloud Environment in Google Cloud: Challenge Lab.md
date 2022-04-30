@@ -89,6 +89,28 @@ kubectl create secret generic cloudsql-instance-credentials \
     --from-file key.json
 
 ```
+## Task - 7 : Create a WordPress deployment
+```
+sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-k8s/wp-deployment.yaml
+```
+```
+kubectl create -f wp-deployment.yaml
+kubectl create -f wp-service.yaml
+```
+Task - 8 : Enable monitoring
+- Navigation Menu -> Kubernetes Engine -> Services and Ingress -> Copy Endpoint's address.
 
+- Navigation Menu -> Monitoring -> Uptime Checks -> + CREATE UPTIME CHECK
+
+<b>Title : Wordpress Uptime</b>
+
+- Next -> Target
+
+<b>Hostname : {Endpoint's address} (without http...)<br>
+Path : /</b>
+
+- Next -> Next -> Create
+
+## Task - 9 : Provide access for an additional engineer
 
 
