@@ -65,6 +65,7 @@ wget https://storage.googleapis.com/cloud-training/gsp315/map.jpg
 gsutil cp map.jpg gs://$BUCKET_NAME
 ```
 ## Task 4: Remove the previous cloud engineer
-
+```
 gcloud projects remove-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member=user:$USERNAME2 --role=roles/viewer
+```
