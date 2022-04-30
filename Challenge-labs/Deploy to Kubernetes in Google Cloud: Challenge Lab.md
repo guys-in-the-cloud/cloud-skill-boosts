@@ -6,34 +6,46 @@
 ## Defining some variables given by Cloud Skill Boosts
 
 ```
+export YOUR_EMAIL=
+```
+example variable defination -  export Your_email= <you@example.com>
+  
+```
+export USERNAME=
+```
+example variable defination - export User_name= <student5674..>
+
+```
 export DOCKER_IMAGE=
 ```
 example variable defination - export Docker_Image=<Docker Image>
 
 ```
-export DOCKER_IMAGE_UPDATED_VERSION=
+export TAG_NAME=
+```
+  
+```
+export UPDATED_VERSION=
 ```
 example variable defination - export Updated Version=<Updated Version>
 
-  ```
-  export Your_email=
-  ```
-example variable defination -  export Your_email= <you@example.com>
   
-  ```
-  export User_name=
-  ```
-example variable defination - export User_name= <student5674..>
+```
+export REPLICAS_COUNT=
+```
   
   
 ## Task 1: Create a Docker image and store the Dockerfile
-  ```
-  gcloud auth list
-  gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh | bash
-  gcloud source repos clone valkyrie-app
-  cd valkyrie-app
- ```
-The app source code is in valkyrie-app/source. Create valkyrie-app/Dockerfile and add the configuration below.  
+
+1.1 clone the lab repo 
+```
+gsutil cat gs://cloud-training/gsp318/marking/setup_marking_v2.sh | bash
+gcloud source repos clone valkyrie-app
+cd valkyrie-app
+```
+The app source code is in valkyrie-app/source. Create valkyrie-app/Dockerfile and add the configuration below. 
+
+1.2 creating a dockerfile to create docker image
 ```
 cat > Dockerfile <<EOF
 FROM golang:1.10
@@ -43,25 +55,26 @@ RUN go install -v
 ENTRYPOINT ["app","-single=true","-port=8080"]
 EOF
 ```
- Building image  
+1.3 Building image  
 ```
-docker build -t ${DOCKER_IMAGE} .
+docker build -t ${DOCKER_IMAGE}:${TAG_NAME} .
 ```
+1.4 run the clone script
 ```
 cd ..
 cd marking
 ./step1_v2.sh
 ```
-  Task - 3 : Push the Docker image in the Google Container Repository
+## Task 3: Push the Docker image in the Google Container Repository
 ```
 cd ..
 cd valkyrie-app
-docker tag ${DOCKER_IMAGE} gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}
-docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE}
+docker tag ${DOCKER_IMAGE} gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}
+docker push gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE}:${TAG_NAME}
 ```
 Task - 4 : Create and expose a deployment in Kubernetes
 ```
-sed -i s#IMAGE_HERE#gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE} Name#g k8s/deployment.yaml
+sed -i s#IMAGE_HERE#gcr.io/$DEVSHELL_PROJECT_ID/${DOCKER_IMAGE} Name#g k8s/deployment.yaml
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
