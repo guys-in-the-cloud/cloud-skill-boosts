@@ -152,7 +152,7 @@ gcloud source repos list
 
 Go back to the jenkins console & create a pipeline
   
-3. Dashboard -> New Item -> Give name as valkyrie-app -> in the Pipeline section -> choose Pipeline script from SCM from the dropdown -> Script:            Pipeline script from SCM -> SCM: Git ->  Repository URL -> fill your project ID as Credentials -> Apply -> Save
+3. Dashboard -> New Item -> Give name as <b>valkyrie-app</b> -> in the Pipeline section -> choose Pipeline script from SCM from the dropdown -> Script:            Pipeline script from SCM -> SCM: Git ->  Repository URL -> fill your project ID as Credentials -> Apply -> Save
 
 
 Again go back to the cloud shell & run the following command, to test your pipeline
@@ -166,6 +166,8 @@ git add .
 git commit -m "built pipeline init"
 git push
 ```
+## In the Jenkins console output if you see All nodes of label 'valkyrie-app' are offline then <br>
+  first delete the existing 'valkyrie-app' pipeline: in the left hand side > delete pipeline > repeat the process from Manual thing section <b>3rd point</b>  
 # Congratulations you've completed your challenge lab
 ## Happy Learning
-## See you in the cloud
+## See you in the cloud...
