@@ -3,9 +3,9 @@
 [YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
 
 ## Define Variable
-
+```
 ID=$(gcloud info --format='value(config.project)')
-
+```
 ## Task 1: Create development VPC manually
 ```
 gcloud compute networks create griffin-dev-vpc --subnet-mode custom
