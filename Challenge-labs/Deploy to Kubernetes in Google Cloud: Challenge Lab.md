@@ -16,12 +16,12 @@ export DOCKER_IMAGE_UPDATED_VERSION=
 example variable defination - export Updated Version=<Updated Version>
 
   ```
-  export Your_email=
+  export YOUR_EMAIL=
   ```
 example variable defination -  export Your_email= <you@example.com>
   
   ```
-  export User_name=
+  export USER_NAME=
   ```
 example variable defination - export User_name= <student5674..>
   
@@ -75,6 +75,7 @@ kubectl create -f k8s/service.yaml
   
   ## ### change <Tag Name> to <Updated Version> in two places
   
+  ```
   ```
   docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}.
   docker push gcr.io/$GOOGLE_CLOUD_PROJECT/${DOCKER_IMAGE_UPDATED_VERSION}
