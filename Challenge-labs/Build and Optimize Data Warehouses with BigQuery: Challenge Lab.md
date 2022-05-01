@@ -1,7 +1,7 @@
 # Build and Optimize Data Warehouses with BigQuery: Challenge Lab
 
 
-[YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
+[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
 
 ## MANUAL INSTRUCTIONS
 
