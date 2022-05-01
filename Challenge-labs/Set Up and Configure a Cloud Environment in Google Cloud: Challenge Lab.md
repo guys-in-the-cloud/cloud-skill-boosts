@@ -1,6 +1,6 @@
 # Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/pX_6MyoYCG0)
+[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
 
 ## Define Variable
 ```
