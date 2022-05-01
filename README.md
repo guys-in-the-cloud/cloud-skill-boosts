@@ -3,7 +3,7 @@
 # TRACK1 CHALLENGE LABS
 
 
-| LAB_NAME | YOUTUBE VIDEO LINK| STEP BY STEP INSTRUCTION SHEET |
+
 |  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
 | --------------- | --------------- | --------------- |
 | Create and Manage Cloud Resources: Challenge Lab | https://youtu.be/QTbwYBiqCsE | [Link to Create and Manage Cloud Resources: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Create%20and%20Manage%20Cloud%20Resources%20Challenge%20Lab.md) |
