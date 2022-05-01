@@ -4,7 +4,7 @@
 
 ## Define Variable
 ```
-ID=$(gcloud info --format='value(config.project)')
+export USER_NAME=
 ```
 ## Task 1: Create development VPC manually
 ```
@@ -117,5 +117,5 @@ Path : /</b>
 
 ## Task - 9 : Provide access for an additional engineer
 ```
-gcloud projects add-iam-policy-binding $ID --member=user:<user-2> --role=roles/editor
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$USER_NAME --role=roles/editor
 ```
