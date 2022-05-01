@@ -3,6 +3,13 @@
 
 [YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
 
+## Let's start with defining some variables given by Cloud Skill Boosts
+```
+export DATASET_NAME=
+```
+```
+export TABLE_NAME=
+```
 ## MANUAL INSTRUCTIONS
 
 - search -> bigquery -> in your project ID click on three dots & then create Dataset -> fill the name provided by Qwiklabs -> click create 
