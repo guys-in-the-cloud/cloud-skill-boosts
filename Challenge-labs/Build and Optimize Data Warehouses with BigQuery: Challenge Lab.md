@@ -3,6 +3,8 @@
 
 [YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
 
+## MANUAL INSTRUCTIONS
+
 - search -> bigquery -> in your project ID click on three dots & then create Dataset -> fill the name provided by Qwiklabs -> click create 
 
 - in the bigquery console -> left upper side -> click + add data -> search for covid 19 government -> & then select COVID 19 Government Response public dataset -> <br>
@@ -29,6 +31,7 @@ WHERE
    alpha_3_code NOT IN ('GBR', 'BRA', 'CAN','USA')
 ```
 
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## Task 2: Add new columns to your table
 ```
 ALTER TABLE <dataset_name>.<table_name>
@@ -43,7 +46,7 @@ ADD COLUMN mobility STRUCT<
    avg_residential FLOAT64
 >
 ```
-
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## Task 3: Add country population data to the population column
 ```
 CREATE OR REPLACE TABLE <dataset_name>.pop_data_2019 AS
@@ -58,7 +61,7 @@ GROUP BY
 ORDER BY
   country_territory_code
 ```
-
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## in different query tab
 ```
 UPDATE
@@ -70,7 +73,7 @@ FROM
 WHERE
    CONCAT(t0.alpha_3_code) = CONCAT(t1.country_territory_code);
    ```
-  
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different  
 ## Task 4: Add country area data to the country_area column
 
 ```
@@ -83,7 +86,7 @@ FROM
 WHERE
    t0.country_name = t1.country_name
 ```
-   
+ ## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different  
 ## Task 5: Populate the mobility record data
 
 ```
@@ -110,7 +113,7 @@ FROM
 WHERE
    CONCAT(t0.country_name, t0.date) = CONCAT(t1.country_region, t1.date)
 ```
-
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## Task 6: Query missing data in population & country_area columns
 
 ```
@@ -133,7 +136,7 @@ FROM `<dataset_name>.<table_name>`
 WHERE country_area IS NULL
 ORDER BY country_name ASC
 ```
-
+## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## CONGRATULATIONS YOUR CHALLENGE LAB IS SUCCESSFULLY COMPLETED - my samples
 ```
 
