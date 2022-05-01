@@ -1,0 +1,9 @@
+title: "<IAM-ROLE-NAME-TASK-1>"
+description: "Permissions"
+stage: "ALPHA"
+includedPermissions:
+- storage.buckets.get
+- storage.objects.get
+- storage.objects.list
+- storage.objects.update
+- storage.objects.create
