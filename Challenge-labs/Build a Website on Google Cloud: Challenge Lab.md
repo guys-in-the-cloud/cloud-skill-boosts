@@ -119,14 +119,19 @@ kubectl get svc -w
 ```
 
 ## Task 5: Configure the Frontend microservice
+
+5.1 exporting service ip addresses into variables  
 ```
 export ORDERS_SERVICE_IP=$(kubectl get services -o jsonpath="{.items[1].status.loadBalancer.ingress[0].ip}")
 export PRODUCTS_SERVICE_IP=$(kubectl get services -o jsonpath="{.items[2].status.loadBalancer.ingress[0].ip}")
 ```
 
+5.2  replacing url with the service variables and build the application 
 ```
 cd ~/monolith-to-microservices/react-app
-nano .env
+sed -i "s/localhost:8081/$ORDERS_SERVICE_IP/g" .env
+sed -i "s/localhost:8082/$PRODUCTS_SERVICE_IP/g" .env
+npm run build
 ```
 
 ## Task 6: Create a containerized version of the Frontend microservice
