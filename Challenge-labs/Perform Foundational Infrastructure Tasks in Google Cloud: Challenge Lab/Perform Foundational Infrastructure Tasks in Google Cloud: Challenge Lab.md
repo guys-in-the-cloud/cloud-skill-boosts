@@ -1,6 +1,6 @@
 # Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
+[YouTube Video Link](https://youtu.be/D9X8rwgx4xM)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
