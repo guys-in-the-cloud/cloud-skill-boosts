@@ -147,7 +147,7 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}
 7.1 Deploy your frontend container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
 kubectl create deployment $FRONTEND_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}:1.0.0
-kubectl expose deployment $FRONTEND_IDENTIFIER--type=LoadBalancer --port 80 --target-port 8080
+kubectl expose deployment $FRONTEND_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8080
 ```
 7.2 Run the below command and wait till you will get the external ip address (ctrl + c to exit)
 ```
