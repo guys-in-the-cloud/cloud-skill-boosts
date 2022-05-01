@@ -108,8 +108,7 @@ jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services 
 
 ```
 
-## In the Jenkins console output if you see All nodes of label 'valkyrie-app' are offline then <br>
-  first delete the existing 'valkyrie-app' pipeline: in the left hand side > delete pipeline > repeat the process from Manual thing section <b>3rd point</b>  
 # Congratulations you've completed your challenge lab
 ## Happy Learning
 ## See you in the cloud...
+
