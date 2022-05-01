@@ -1,4 +1,4 @@
-# Implement DevOps in Google Cloud
+# Implement DevOps in Google Cloud: Challenge Lab
 [YouTube Video Link](https://youtu.be/cHfKWcQglbo)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
