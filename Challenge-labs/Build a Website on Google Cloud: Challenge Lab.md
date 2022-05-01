@@ -79,6 +79,10 @@ gcloud container clusters get-credentials $CLUSTER_NAME
 kubectl create deployment $MONOLITH_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0
 kubectl expose deployment $MONOLITH_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8080
 ```
+2.5 Run the below command and wait till you will get the external ip address (ctrl + c to exit)
+```
+kubectl get svc -w
+```
 
 ## Task 3: Create a containerized version of your Microservices
 
@@ -100,13 +104,26 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}
 kubectl create deployment $ORDERS_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${ORDERS_IDENTIFIER}:1.0.0
 kubectl expose deployment $ORDERS_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8081
 ```
-4.2 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
+4.2Run the below command and wait till you will get the external ip address (ctrl + c to exit)
+```
+kubectl get svc -w
+```
+4.3 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
 kubectl create deployment $PRODUCTS_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}:1.0.0
 kubectl expose deployment $PRODUCTS_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8082
 ```
+4.4 Run the below command and wait till you will get the external ip address (ctrl + c to exit)
+```
+kubectl get svc -w
+```
 
 ## Task 5: Configure the Frontend microservice
+```
+export ORDERS_SERVICE_IP=$(kubectl get services -o jsonpath="{.items[1].status.loadBalancer.ingress[0].ip}")
+export PRODUCTS_SERVICE_IP=$(kubectl get services -o jsonpath="{.items[2].status.loadBalancer.ingress[0].ip}")
+```
+
 ```
 cd ~/monolith-to-microservices/react-app
 nano .env
@@ -127,7 +144,10 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}
 kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}:1.0.0
 kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
 ```
-
+7.2 Run the below command and wait till you will get the external ip address (ctrl + c to exit)
+```
+kubectl get svc -w
+```
 
 # Congratulations! you've completed your challenge lab
 ## Happy Learning
