@@ -1,5 +1,5 @@
 # Implement DevOps in Google Cloud
-[YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
+[YouTube Video Link](https://youtu.be/cHfKWcQglbo)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 ```
