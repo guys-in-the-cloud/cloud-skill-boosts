@@ -70,3 +70,7 @@ gsutil cp map.jpg gs://$BUCKET_NAME
 gcloud projects remove-iam-policy-binding $DEVSHELL_PROJECT_ID \
     --member=user:$USERNAME2 --role=roles/viewer
 ```
+ 
+# Congratulations you've completed your challenge lab
+## Happy Learning
+## See you in the cloud...
