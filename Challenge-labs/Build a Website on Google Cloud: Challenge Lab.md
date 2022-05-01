@@ -50,14 +50,10 @@ git clone https://github.com/googlecodelabs/monolith-to-microservices.git
 cd ~/monolith-to-microservices
 ./setup.sh
 ```
-1.3 change to application directory & Test the application
+
+1.3 change to application directory & Build & push your application container iamge to the Google Container Registry
 ```
 cd ~/monolith-to-microservices/monolith
-npm start
-```
-
-1.4 Build & push your application container iamge to the Google Container Registry
-```
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0 .
 ```
 
