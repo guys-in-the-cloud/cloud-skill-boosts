@@ -1,6 +1,6 @@
 # Build Interactive Apps with Google Assistant: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
+[YouTube Video Link](https://youtu.be/DDPQcJAB-SA)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
