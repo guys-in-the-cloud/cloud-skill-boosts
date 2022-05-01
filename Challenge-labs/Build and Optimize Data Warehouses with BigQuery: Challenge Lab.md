@@ -138,19 +138,5 @@ ORDER BY country_name ASC
 ```
 ## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 ## CONGRATULATIONS YOUR CHALLENGE LAB IS SUCCESSFULLY COMPLETED - my samples
-```
-
-SELECT DISTINCT country_name
-FROM `covid_757.oxford_policy_tracker_735`
-WHERE population is NULL
-UNION ALL
-SELECT DISTINCT country_name
-FROM `covid_757.oxford_policy_tracker_735`
-WHERE country_area IS NULL
-ORDER BY country_name ASC
-```
-my dataset name - covid_757 <br>
-my table name - oxford_policy_tracker_735
-
 
 
