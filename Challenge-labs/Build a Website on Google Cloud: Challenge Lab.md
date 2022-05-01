@@ -2,75 +2,137 @@
 
 [YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
 
-## Task 1: Download the monolith code and build your container
+## Defining some variables given by Cloud Skill Boosts
 
 ```
-git clone https://github.com/googlecodelabs/monolith-to-microservices.git
+export MONOLITH_IDENTIFIER=
+```
+example variable defination - export MONOLITH_IDENTIFIER=<Monolith_Identifier_given_in_the_lab_instructions> 
 
+```
+export CLUSTER_NAME=
+```
+example variable defination - export CLUSTER_NAME=<Cluster_Name_given_in_the_lab_instructions>
+
+```
+export ORDERS_IDENTIFIER=
+```
+example variable defination - export ORDERS_IDENTIFIER=<Orders_Identifier_name_given_in_the_lab_instructions>
+
+```
+export PRODUCTS_IDENTIFIER=
+```
+example variable defination - export PRODUCTS_IDENTIFIER=<Products_Identifier_given_in_the_lab_instructions>
+
+```
+export FRONTEND_IDENTIFIER=
+```
+example variable defination - export FRONTEND_IDENTIFIER=<Frontend_Identifier_name_given_in_the_lab_instructions>
+
+## prerequisites 
+
+before starting this lab, there are some APIs, we need to enable to specific service like Cloud Build etc.
+
+```
+gcloud services enable cloudbuild.googleapis.com
+gcloud services enable container.googleapis.com
+```
+
+## Task 1: Download the monolith code and build your container
+
+1.1 Clone the application code & scripts
+```
+git clone https://github.com/googlecodelabs/monolith-to-microservices.git
+```
+
+1.2 change to script directory & setup environment for application by running script
+```
 cd ~/monolith-to-microservices
 ./setup.sh
-
+```
+1.3 change to application directory & Test the application
+```
 cd ~/monolith-to-microservices/monolith
 npm start
+```
 
-gcloud services enable cloudbuild.googleapis.com
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/fancytest:1.0.0 .
+1.4 Build & push your application container iamge to the Google Container Registry
+```
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0 .
 ```
 
 ## Task 2: Create a kubernetes cluster and deploy the application
 
+2.1 Setup your default zone for kubernetes deployment 
 ```
 gcloud config set compute/zone us-central1-a
-gcloud services enable container.googleapis.com
-gcloud container clusters create fancy-cluster --num-nodes 3
+```
+2.2 Create a cluster with 3 nodes
+```
+gcloud container clusters create $CLUSTER_NAME --num-nodes 3
+```
+It will take approx 4-5 mints to create cluster so please be patience
 
-kubectl create deployment fancytest --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/fancytest:1.0.0
+2.3 authenticate your cluster in your cloud shell, so that you can work with your cluster using kubectl 
+```
+gcloud container clusters get-credentials $CLUSTER_NAME
+```
+
+2.4 Deploy your application container image in created kubernetes cluster & expose it on port 80 with loadbalancer type of service
+```
+kubectl create deployment fancytest --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0
 kubectl expose deployment fancytest --type=LoadBalancer --port 80 --target-port 8080
-
 ```
 
 ## Task 3: Create a containerized version of your Microservices
+
+3.1 Build & push some more container iamge to the Google Container Registry, here we're creating orders service container image
 ```
 cd ~/monolith-to-microservices/microservices/src/orders
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/orders:1.0.0 .
-
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${ORDERS_IDENTIFIER}:1.0.0 .
+```
+3.2 Build & push some more container iamge to the Google Container Registry, here we're creating products service container image
+```
 cd ~/monolith-to-microservices/microservices/src/products
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/products:1.0.0 .
-
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}:1.0.0 .
 ```
 
 ## Task 4: Deploy the new microservices
+
+4.1 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
-Task 4: Deploy the new microserviceskubectl create deployment orders --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/orders:1.0.0
+kubectl create deployment orders --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${ORDERS_IDENTIFIER}:1.0.0
 kubectl expose deployment orders --type=LoadBalancer --port 80 --target-port 8081
-
-kubectl create deployment products --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/products:1.0.0
-kubectl expose deployment products --type=LoadBalancer --port 80 --target-port 8082
-
 ```
+4.2 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
+```
+kubectl create deployment products --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}:1.0.0
+kubectl expose deployment products --type=LoadBalancer --port 80 --target-port 8082
+```
+
 ## Task 5: Configure the Frontend microservice
 ```
 cd ~/monolith-to-microservices/react-app
 nano .env
-
 ```
 
 ## Task 6: Create a containerized version of the Frontend microservice
+
+6.1 Build & push some more container iamge to the Google Container Registry, here we're creating frontend service container image
 ```
 cd ~/monolith-to-microservices/microservices/src/frontend
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0 .
-
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}:1.0.0 .
 ```
 
 ## Task 7: Deploy the Frontend microservice
-```
-kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0
 
+7.1 Deploy your frontend container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
+```
+kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${FRONTEND_IDENTIFIER}:1.0.0
 kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
-
 ```
 
 
-# Congratulations you've completed your challenge lab
+# Congratulations! you've completed your challenge lab
 ## Happy Learning
 ## See you in the cloud...
