@@ -53,7 +53,7 @@ kubectl expose deployment products --type=LoadBalancer --port 80 --target-port 8
 cd ~/monolith-to-microservices/react-app
 nano .env
 
-``
+```
 
 ## Task 6: Create a containerized version of the Frontend microservice
 ```
