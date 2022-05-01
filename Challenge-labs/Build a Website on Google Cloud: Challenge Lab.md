@@ -76,8 +76,8 @@ gcloud container clusters get-credentials $CLUSTER_NAME
 
 2.4 Deploy your application container image in created kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
-kubectl create deployment fancytest --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0
-kubectl expose deployment fancytest --type=LoadBalancer --port 80 --target-port 8080
+kubectl create deployment $MONOLITH_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0
+kubectl expose deployment $MONOLITH_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8080
 ```
 
 ## Task 3: Create a containerized version of your Microservices
@@ -97,13 +97,13 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}
 
 4.1 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
-kubectl create deployment orders --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${ORDERS_IDENTIFIER}:1.0.0
-kubectl expose deployment orders --type=LoadBalancer --port 80 --target-port 8081
+kubectl create deployment $ORDERS_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${ORDERS_IDENTIFIER}:1.0.0
+kubectl expose deployment $ORDERS_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8081
 ```
 4.2 Deploy your orders container image in kubernetes cluster & expose it on port 80 with loadbalancer type of service
 ```
-kubectl create deployment products --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}:1.0.0
-kubectl expose deployment products --type=LoadBalancer --port 80 --target-port 8082
+kubectl create deployment $PRODUCTS_IDENTIFIER --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/${PRODUCTS_IDENTIFIER}:1.0.0
+kubectl expose deployment $PRODUCTS_IDENTIFIER --type=LoadBalancer --port 80 --target-port 8082
 ```
 
 ## Task 5: Configure the Frontend microservice
