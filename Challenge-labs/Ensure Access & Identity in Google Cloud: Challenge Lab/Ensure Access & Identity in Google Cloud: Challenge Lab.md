@@ -23,7 +23,7 @@ wget filename
 ```
 
 ```
-sed sed -i "s/<IAM-ROLE-NAME-TASK-1>/$CUSTOM_SECURIY_ROLE/g" role-definition.yaml
+sed -i "s/<IAM-ROLE-NAME-TASK-1>/$CUSTOM_SECURIY_ROLE/g" role-definition.yaml
 ```
 
 ```
@@ -55,8 +55,23 @@ gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member serviceAcco
 gcloud container clusters create $CLUSTER_NAME --num-nodes 1 --master-ipv4-cidr=172.16.0.64/28 --network orca-build-vpc --subnetwork orca-build-subnet --enable-master-authorized-networks  --master-authorized-networks 192.168.10.2/32 --enable-ip-alias --enable-private-nodes --enable-private-endpoint --service-account $SERVICE_ACCOUNT@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --zone us-east1-b
 
 ```
+- SSH Machine orca-jumphost
+```
+gcloud compute ssh --zone "us-east1-b" "orca-jumphost" 
+```
+```
+gcloud config set compute/zone us-east1-b
+```
+```
+export CLUSTER_NAME=
+```
+```
+gcloud container clusters get-credentials $CLUSTER_NAME --internal-ip
 
+kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 
+kubectl expose deployment hello-server --name orca-hello-service --type LoadBalancer --port 80 --target-port 8080
+```
 
 
 
