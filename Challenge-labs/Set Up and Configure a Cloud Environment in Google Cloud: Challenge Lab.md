@@ -6,7 +6,7 @@
 ```
 export USER_NAME2=
 ```
-## Task 1: Create development VPC manually
+## Task 1: Create development VPC 
 ```
 gcloud compute networks create griffin-dev-vpc --subnet-mode custom
 
@@ -16,7 +16,7 @@ gcloud compute networks subnets create griffin-dev-mgmt --network=griffin-dev-vp
 
 ```
 
-## Task - 2 : Create production VPC manually
+## Task - 2 : Create production VPC 
 
 ```
 gsutil cp -r gs://cloud-training/gsp321/dm .
