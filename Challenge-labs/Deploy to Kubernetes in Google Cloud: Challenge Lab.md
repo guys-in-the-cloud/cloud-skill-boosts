@@ -1,6 +1,6 @@
 # Deploy to Kubernetes in Google Cloud
 
-[YouTube Video Link]()
+[YouTube Video Link](https://youtu.be/y7buagD2urw)
 
 
 ## Defining some variables given by Cloud Skill Boosts
