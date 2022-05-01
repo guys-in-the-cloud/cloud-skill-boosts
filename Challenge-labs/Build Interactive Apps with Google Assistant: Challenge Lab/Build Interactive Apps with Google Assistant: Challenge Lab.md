@@ -113,7 +113,7 @@ You can test in Dialogflow to ensure it works.
 
 ## Task 3: Add multilingual support to your Cloud Function
 
-- Cloud Funcctions --> Trigger --> Edit --> Next --> Update the main.py file at line 24(line no. may differ) --> Deploy 
+- Cloud Functions --> Trigger --> Edit --> Next --> Update the main.py file at line 24(line no. may differ) --> Deploy 
 
 - Goto to Dialogflow window --> Test --> Test the sentences
 
