@@ -1,12 +1,15 @@
 # Build and Optimize Data Warehouses with BigQuery: Challenge Lab
 
 
-search -> bigquery -> in your project ID click on three dots & then create Dataset -> fill the name provided by Qwiklabs -> click create 
+[YouTube Video Link](https://www.youtube.com/watch?v=QTbwYBiqCsE)
 
-in the bigquery console -> left upper side -> click + add data -> search for covid 19 government -> & then select COVID 19 Government Response public dataset -> <br>
-view dataset(this will open new tab) -> in the new bigquery tab -> in the left side search for "oxford" & select -> Broaden search to all projects. you can see like below 
+- search -> bigquery -> in your project ID click on three dots & then create Dataset -> fill the name provided by Qwiklabs -> click create 
 
-![image](https://user-images.githubusercontent.com/104570014/166145099-6012be64-1d27-4dab-9de3-fffec9a60a98.png)
+- in the bigquery console -> left upper side -> click + add data -> search for covid 19 government -> & then select COVID 19 Government Response public dataset -> <br>
+
+- view dataset(this will open new tab) -> in the new bigquery tab -> in the left side search for "oxford" & select -> Broaden search to all projects. you can see like   below 
+
+![image](https://user-images.githubusercontent.com/104570014/166146795-bc022de8-d45e-4827-beb9-1880ac6230c8.png)
 
 ## Note - Don't forget to replace <dataset_name> <table_name>, for everyone this is different
 
