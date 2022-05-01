@@ -19,7 +19,7 @@ export CLUSTER_NAME=
 gcloud config set compute/zone us-east1-b
 ```
 ```
-wget filename
+wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main/Challenge-labs/Ensure%20Access%20%26%20Identity%20in%20Google%20Cloud%3A%20Challenge%20Lab/role-definition.yaml
 ```
 
 ```
