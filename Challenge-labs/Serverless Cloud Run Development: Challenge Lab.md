@@ -4,16 +4,17 @@
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
-RAW 
-
+RAW
 ```
-gcloud auth list
-gcloud config list project
-
-gcloud config set project \
-$(gcloud projects list --format='value(PROJECT_ID)' \
---filter='qwiklabs-gcp')
-
+export PUBLIC_BILLING_SERVICE=
+```
+```
+export FRONTEND_STAGING_SERVICE=
+```
+```
+export PRIVATE_BILLING_SERVICE=
+```
+```
 gcloud config set run/region us-central1
 gcloud config set run/platform managed
 
@@ -27,7 +28,7 @@ export PROJECT_ID=$(gcloud info --format='value(config.project)')
 cd ~/pet-theory/lab07/unit-api-billing
 
 gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-staging-api:0.1
-gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/billing-staging-api:0.1
+gcloud run deploy $PUBLIC_BILLING_SERVICE --image gcr.io/${PROJECT_ID}/billing-staging-api:0.1
 
 gcloud run services list
 ```
@@ -37,7 +38,7 @@ gcloud run services list
 cd ~/pet-theory/lab07/staging-frontend-billing
 
 gcloud builds submit --tag gcr.io/${PROJECT_ID}/frontend-staging:0.1
-gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/frontend-staging:0.1
+gcloud run deploy $FRONTEND_STAGING_SERVICE --image gcr.io/${PROJECT_ID}/frontend-staging:0.1
 
 gcloud run services list
 
@@ -47,7 +48,7 @@ gcloud run services list
 cd ~/pet-theory/lab07/staging-api-billing
 
 gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-staging-api:0.2
-gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/billing-staging-api:0.2
+gcloud run deploy $PRIVATE_BILLING_SERVICE --image gcr.io/${PROJECT_ID}/billing-staging-api:0.2
 
 gcloud run services list
 
