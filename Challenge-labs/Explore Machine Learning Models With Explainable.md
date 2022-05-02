@@ -66,9 +66,6 @@ limited_model.fit(limited_train_data, limited_train_labels, epochs=10, batch_siz
 ![image](https://user-images.githubusercontent.com/104570014/166263607-022de28b-5d40-4c23-8648-087c8d5a0686.png)
 
 
-![image](https://user-images.githubusercontent.com/104570014/166252052-8c3a8141-37ce-4baa-be79-e4684fc0079c.png)
-
-
 ## Create the Complete AI Platform model
 - <b>Here in your side the name will be changed so carefully fill the details</b>
 - go to AI Platform ---> left hand side Models ( click create model) 
@@ -84,5 +81,10 @@ limited_model.fit(limited_train_data, limited_train_labels, epochs=10, batch_siz
 - Framework = TensorFlow
 - Framework version = 2.3.1
 - ML Runtime version = 2.3
+- Add Vucket location where your model dataset is 
 
-Follow same for Limited AI Platform model
+<b>Follow same for Limited AI Platform model</b>
+
+# Congratulations you've completed your challenge lab
+## Happy Learning
+## See you in the cloud...
