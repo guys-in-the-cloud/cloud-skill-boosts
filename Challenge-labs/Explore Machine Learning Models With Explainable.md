@@ -58,28 +58,31 @@ limited_model.fit(limited_train_data, limited_train_labels, epochs=10, batch_siz
 - (paste code like this image given below)
 
 
-## Add project_id in Deploy Your models to the AI Platform
+## Add project_id and model name mention in manual  Deploy Your models to the AI Platform
+- in your case might be different<br> 
+![image](https://user-images.githubusercontent.com/104570014/166262902-a252f22d-ebff-4959-9496-5fbbdf52bb66.png)
+
+- replace project id as well as model name given in manual 
+![image](https://user-images.githubusercontent.com/104570014/166263607-022de28b-5d40-4c23-8648-087c8d5a0686.png)
 
 
 ![image](https://user-images.githubusercontent.com/104570014/166252052-8c3a8141-37ce-4baa-be79-e4684fc0079c.png)
 
-## Using the What-if Tool to interpret your model
-
-```
-config_builder = (WitConfigBuilder(
-    examples_for_wit[:num_datapoints],feature_names=column_names)
-    .set_custom_predict_fn(limited_custom_predict)
-    .set_target_feature('loan_granted')
-    .set_label_vocab(['denied', 'accepted'])
-    .set_compare_custom_predict_fn(custom_predict)
-    .set_model_name('limited')
-    .set_compare_model_name('complete'))
-WitWidget(config_builder, height=800)
-
-```
-![image](https://user-images.githubusercontent.com/104570014/166252948-179d06dc-e40a-445e-8d5e-9846d29fcc61.png)
 
 ## Create the Complete AI Platform model
 - <b>Here in your side the name will be changed so carefully fill the details</b>
-- go to AI Platform ---> left hand side Models ( click create model)
+- go to AI Platform ---> left hand side Models ( click create model) 
+- also fill the Model Name correctly (as given in below image)
+![image](https://user-images.githubusercontent.com/104570014/166262902-a252f22d-ebff-4959-9496-5fbbdf52bb66.png)
+![image](https://user-images.githubusercontent.com/104570014/166264279-0214b529-52a7-4fb4-b457-d6e63510d371.png)
+- create same model here 
+![image](https://user-images.githubusercontent.com/104570014/166264394-cd7c7636-cbd6-49a5-87b2-1055feb56354.png)
 
+## now fill this detail 
+- Version Name = v1
+- Python version = 3.7
+- Framework = TensorFlow
+- Framework version = 2.3.1
+- ML Runtime version = 2.3
+
+Follow same for Limited AI Platform model
