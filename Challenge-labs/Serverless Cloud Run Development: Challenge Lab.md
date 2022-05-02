@@ -19,7 +19,6 @@ gcloud config set run/region us-central1
 gcloud config set run/platform managed
 
 git clone https://github.com/rosera/pet-theory.git && cd pet-theory/lab07
-export PROJECT_ID=$(gcloud info --format='value(config.project)')
 
 ```
 ## Task - 1 : Deploy a Public Billing Service
@@ -27,8 +26,8 @@ export PROJECT_ID=$(gcloud info --format='value(config.project)')
 ```
 cd ~/pet-theory/lab07/unit-api-billing
 
-gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-staging-api:0.1
-gcloud run deploy $PUBLIC_BILLING_SERVICE --image gcr.io/${PROJECT_ID}/billing-staging-api:0.1
+gcloud builds submit --tag gcr.io/$$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
+gcloud run deploy $PUBLIC_BILLING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
 
 gcloud run services list
 ```
@@ -37,8 +36,8 @@ gcloud run services list
 ```
 cd ~/pet-theory/lab07/staging-frontend-billing
 
-gcloud builds submit --tag gcr.io/${PROJECT_ID}/frontend-staging:0.1
-gcloud run deploy $FRONTEND_STAGING_SERVICE --image gcr.io/${PROJECT_ID}/frontend-staging:0.1
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/frontend-staging:0.1
+gcloud run deploy $FRONTEND_STAGING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/frontend-staging:0.1
 
 gcloud run services list
 
@@ -47,8 +46,8 @@ gcloud run services list
 ```
 cd ~/pet-theory/lab07/staging-api-billing
 
-gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-staging-api:0.2
-gcloud run deploy $PRIVATE_BILLING_SERVICE --image gcr.io/${PROJECT_ID}/billing-staging-api:0.2
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.2
+gcloud run deploy $PRIVATE_BILLING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.2
 
 gcloud run services list
 
@@ -57,7 +56,6 @@ BILLING_URL=$(gcloud run services describe $BILLING_SERVICE \
   --region us-central1 \
   --format "value(status.url)")
 
-curl -X get -H "Authorization: Bearer $(gcloud auth print-identity-token)" $BILLING_URL
 
 ```
 
@@ -72,8 +70,8 @@ gcloud iam service-accounts create billing-service-sa --display-name "Billing Se
 ```
 cd ~/pet-theory/lab07/prod-api-billing
 
-gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-prod-api:0.1
-gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/billing-prod-api:0.1
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/billing-prod-api:0.1
+gcloud run deploy public-billing-service --image gcr.io/$DEVSHELL_PROJECT_ID/billing-prod-api:0.1
 
 gcloud run services list
 
@@ -97,8 +95,8 @@ gcloud iam service-accounts create frontend-service-sa --display-name "Billing S
 ```
 cd ~/pet-theory/lab07/prod-frontend-billing
 
-gcloud builds submit --tag gcr.io/${PROJECT_ID}/frontend-prod:0.1
-gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/frontend-prod:0.1
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1
+gcloud run deploy public-billing-service --image gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1
 
 gcloud run services list
 
