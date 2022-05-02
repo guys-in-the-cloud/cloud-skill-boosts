@@ -82,7 +82,7 @@ for file in files:
         
             from google.cloud import translate_v2 as translate
             client = translate.Client()
-            translation = translate_client.translate(text_data, target_language='en')
+            translation = translate_client.translate(text_data, target_language='${LOCALE}')
             translated_text = translation['translatedText']
         print(translated_text)
         
