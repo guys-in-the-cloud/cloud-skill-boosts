@@ -113,5 +113,8 @@ gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1
 gcloud run deploy $FRONTEND_PRODUCTION_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/frontend-prod:0.1
 ```
 
+# Congratulations you've completed your challenge lab
+## Happy Learning
+## See in the Cloud...
 
 
