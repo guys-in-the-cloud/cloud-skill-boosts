@@ -55,7 +55,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sample-sa-key.json
 1.6 Copying the base code from the bucket to the current directory
 
 ```
-gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
+gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images-v2.py .
 ```
 
 ## Open Editor and replace the content of "analyze-images.py" file with
