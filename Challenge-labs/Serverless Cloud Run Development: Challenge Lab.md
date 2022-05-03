@@ -46,7 +46,7 @@ cd ~/pet-theory/lab07/unit-api-billing
 ```
 1.2 Build & deploy image for the public billing service
 ```
-gcloud builds submit --tag gcr.io/$$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
 gcloud run deploy $PUBLIC_BILLING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
 ```
 ## Task - 2 : Deploy the Frontend Service
