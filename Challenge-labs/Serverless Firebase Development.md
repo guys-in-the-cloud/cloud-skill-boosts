@@ -37,6 +37,7 @@ npm install
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.1
 gcloud beta run deploy $DATASET_SERVICE_NAME --image gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.1 --allow-unauthenticated
 ```
+- select y and select region 25-us-central1
 # Task 4: Firestore API access
 ```
 cd ~/pet-theory/lab06/firebase-rest-api/solution-02
@@ -45,15 +46,19 @@ gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.2
 gcloud beta run deploy $DATASET_SERVICE_NAME --image gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.2 --allow-unauthenticated
 
 ```
-- Goto cloud run and click netflix-dataset-service then copy the url.
-```
-SERVICE_URL=<copy url from your netflix-dataset-service>
-curl -X GET $SERVICE_URL/2019
-```
+- select y and select region 25-us-central1
 
 # Task - 5: Cloud Build Frontend Staging
 ```
 cd ~/pet-theory/lab06/firebase-frontend/public
+gcloud run services describe netflix-dataset-service-738 --platform managed --region us-central1  --format 'value(status.url)'
+```
+```
+export DATASET_URL=
+```
+```
+sed -i "s/https://XXXX-SERVICE.run.app/2020/$DATASET_URL/g" app.js
+## remove nano cmd instead of nano we are using sed (Abhishek)
 nano app.js # comment line 3 and uncomment line 4, insert your netflix-dataset-service url
 npm install
 cd ~/pet-theory/lab06/firebase-frontend
