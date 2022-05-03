@@ -115,6 +115,6 @@ gcloud run deploy $FRONTEND_PRODUCTION_SERVICE --image gcr.io/$DEVSHELL_PROJECT_
 
 # Congratulations you've completed your challenge lab
 ## Happy Learning
-## See in the Cloud...
+## See you in the Cloud...
 
 
