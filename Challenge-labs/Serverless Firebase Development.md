@@ -57,9 +57,9 @@ gcloud run services describe netflix-dataset-service-738 --platform managed --re
 export DATASET_URL=
 ```
 ```
-sed -i "s/https://XXXX-SERVICE.run.app/2020/$DATASET_URL/g" app.js
-## remove nano cmd instead of nano we are using sed (Abhishek)
-nano app.js # comment line 3 and uncomment line 4, insert your netflix-dataset-service url
+sed "s#https://XXXX-SERVICE.run.app/2020#$DATASET_URL#g" app.js
+```
+```
 npm install
 cd ~/pet-theory/lab06/firebase-frontend
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1
