@@ -80,3 +80,11 @@ gcloud ml language analyze-entities --content="Old Norse texts portray Odin as o
 
 gsutil cp result.json gs://$YOUR_PROJECT-marking/task4-cnl.result
 ```
+- Copy the speech API configuration file 
+```
+wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud%3A%20Challenge%20Lab/speech-request.json
+```
+- Copy the Video Intelligence configuration file
+```
+waget https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab/video-intelligence-request.json
+```
