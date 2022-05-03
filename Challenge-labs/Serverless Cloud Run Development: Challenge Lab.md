@@ -4,7 +4,6 @@
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
-RAW
 ```
 export PUBLIC_BILLING_SERVICE=
 ```
@@ -13,6 +12,15 @@ export FRONTEND_STAGING_SERVICE=
 ```
 ```
 export PRIVATE_BILLING_SERVICE=
+```
+```
+export BILLING_SERVICE=
+```
+```
+export BILLING_PROD_SERVICE=
+```
+```
+export FRONTEND_SERVICE=
 ```
 ```
 gcloud config set run/region us-central1
@@ -29,7 +37,6 @@ cd ~/pet-theory/lab07/unit-api-billing
 gcloud builds submit --tag gcr.io/$$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
 gcloud run deploy $PUBLIC_BILLING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.1
 
-gcloud run services list
 ```
 ## Task - 2 : Deploy the Frontend Service
 
@@ -49,13 +56,6 @@ cd ~/pet-theory/lab07/staging-api-billing
 gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.2
 gcloud run deploy $PRIVATE_BILLING_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-staging-api:0.2
 
-gcloud run services list
-
-BILLING_URL=$(gcloud run services describe $BILLING_SERVICE \
-  --platform managed \
-  --region us-central1 \
-  --format "value(status.url)")
-
 
 ```
 
@@ -63,7 +63,7 @@ BILLING_URL=$(gcloud run services describe $BILLING_SERVICE \
 ## Task - 4 : Create a Billing Service Account
 
 ```
-gcloud iam service-accounts create billing-service-sa --display-name "Billing Service Cloud Run"
+gcloud iam service-accounts create $BILLING_SERVICE --display-name "Billing Service Cloud Run"
 ```
 
 ## Task - 5 : Deploy a Billing Service in Production
@@ -71,25 +71,13 @@ gcloud iam service-accounts create billing-service-sa --display-name "Billing Se
 cd ~/pet-theory/lab07/prod-api-billing
 
 gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/billing-prod-api:0.1
-gcloud run deploy public-billing-service --image gcr.io/$DEVSHELL_PROJECT_ID/billing-prod-api:0.1
+gcloud run deploy $BILLING_PROD_SERVICE --image gcr.io/$DEVSHELL_PROJECT_ID/billing-prod-api:0.1
 
-gcloud run services list
 
-PROD_BILLING_SERVICE=private-billing-service
-
-PROD_BILLING_URL=$(gcloud run services \
-  describe $PROD_BILLING_SERVICE \
-  --platform managed \
-  --region us-central1 \
-  --format "value(status.url)")
-
-curl -X get -H "Authorization: Bearer \
- $(gcloud auth print-identity-token)" \
- $PROD_BILLING_URL
 ```
 ## Task - 6 : Create a Frontend Service Account
 ```
-gcloud iam service-accounts create frontend-service-sa --display-name "Billing Service Cloud Run Invoker"
+gcloud iam service-accounts create $FRONTEND_SERVICE --display-name "Billing Service Cloud Run Invoker"
 ```
 ## Task - 7 : Deploy the Frontend Service in Production
 ```
