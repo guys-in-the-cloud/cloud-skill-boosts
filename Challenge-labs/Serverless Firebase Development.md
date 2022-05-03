@@ -51,7 +51,7 @@ gcloud beta run deploy $DATASET_SERVICE_NAME --image gcr.io/$GOOGLE_CLOUD_PROJEC
 # Task - 5: Cloud Build Frontend Staging
 ```
 cd ~/pet-theory/lab06/firebase-frontend/public
-gcloud run services describe netflix-dataset-service-738 --platform managed --region us-central1  --format 'value(status.url)'
+gcloud run services describe $DATASET_SERVICE_NAME --platform managed --region us-central1  --format 'value(status.url)'
 ```
 ```
 export DATASET_URL=
