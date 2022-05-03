@@ -34,14 +34,14 @@ gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 # Task 3: Run a simple Dataprep job
 - Set Region
 ```
-gcloud config set dataproc/region $REGION
+gcloud config set compute/zone ${REGION}-a
 ```
 ```
 gcloud dataproc clusters create sample-cluster
 ```
 - SSH into Dataproc Cluster
 ```
-gcloud compute ssh sample-cluster --region=$REGION
+gcloud compute ssh sample-cluster-m --zone=${REGION}-a
 ```
 
 ```
@@ -54,6 +54,15 @@ gcloud dataproc jobs submit spark --cluster sample-cluster \
   --class org.apache.spark.examples.SparkPageRank \
   --jars file:///usr/lib/spark/examples/jars/spark-examples.jar -- /data.txt
 ```
+## Dataprep Job
+- Initialize Dataprep
+- Create flow
+- Import gs://cloud-training/gsp323/runs.csv
+- Create a Recipe
+- Add the following Steps
+ ![image](https://user-images.githubusercontent.com/104570014/166557351-1469d0e7-6a31-4919-a780-8074bb250653.png)
+
+
 # Task 4: AI
 
 - Execute The Following Commands
