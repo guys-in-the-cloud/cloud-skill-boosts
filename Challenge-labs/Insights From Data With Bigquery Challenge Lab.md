@@ -7,7 +7,7 @@
 ```
 SELECT sum(cumulative_confirmed) as total_cases_worldwide
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
-WHERE date='2020-04-15'
+WHERE date=<change date eg'020-04-10'>
 ```
 
 ## Task - 2 : Worst Affected Areas
@@ -19,7 +19,7 @@ with deaths_by_states as (
 
     FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
 
-    where country_name="United States of America" and date='2020-04-10' and subregion1_name is NOT NULL
+    where country_name="United States of America" and date=<change date eg'020-04-10'> and subregion1_name is NOT NULL
 
     group by subregion1_name
 )
@@ -28,7 +28,7 @@ select count(*) as count_of_states
 
 from deaths_by_states
 
-where death_count > 100
+where death_count > <change deathcount here>
 
 ```
 
@@ -41,13 +41,13 @@ SELECT * FROM (
 
     FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
 
-    WHERE country_code="US" AND date='2020-04-10' AND subregion1_name is NOT NULL
+    WHERE country_code="US" AND date=<change date eg'020-04-10'> AND subregion1_name is NOT NULL
 
     GROUP BY subregion1_name
 
     ORDER BY total_confirmed_cases DESC
 )
-WHERE total_confirmed_cases > 1000
+WHERE total_confirmed_cases > <change deathcount here>
 
 ```
 
@@ -58,7 +58,7 @@ SELECT sum(cumulative_confirmed) as total_confirmed_cases, sum(cumulative_deceas
 
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
 
-where country_name="Italy" AND date BETWEEN '2020-04-01'and '2020-04-30'
+where country_name="Italy" AND date BETWEEN <change month here '2020-04-01'> and < change month here '2020-04-30'> 
 
 ```
 
@@ -68,7 +68,7 @@ SELECT date
 
 FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
 
-where country_name="Italy" and cumulative_deceased>10000
+where country_name="Italy" and cumulative_deceased> <change the value of death cross>
 
 order by date asc
 
@@ -93,7 +93,7 @@ WITH india_cases_by_date AS (
 
     country_name ="India"
 
-    AND date between '2020-02-21' and '2020-03-15'
+    AND date between < change the date here'2020-02-21'> and <change the date here'2020-03-15'>
 
   GROUP BY
 
@@ -184,7 +184,7 @@ select Date, cases as Confirmed_Cases_On_Day, previous_day as Confirmed_Cases_Pr
 
 from us_previous_day_comparison
 
-where percentage_increase > 10
+where percentage_increase > <change percentage value here>
 
 ```
 
@@ -266,7 +266,7 @@ WITH
 
     AND date IN ('2020-01-24',
 
-      '2020-05-10')
+      <change the date value here'2020-05-10'>)
 
   GROUP BY
 
