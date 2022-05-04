@@ -32,7 +32,7 @@ gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 
 
 # Task 3: Run a simple Dataprep job
-- Set Region
+- Set Region (if in case you get region us-east1 instead of -a replace -b)
 ```
 gcloud config set compute/zone ${REGION}-a
 ```
