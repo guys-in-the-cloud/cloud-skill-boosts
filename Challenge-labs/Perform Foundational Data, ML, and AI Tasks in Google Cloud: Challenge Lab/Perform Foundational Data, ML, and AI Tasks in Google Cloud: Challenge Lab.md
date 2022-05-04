@@ -74,7 +74,7 @@ gcloud iam service-accounts create my-natlang-sa \
   --display-name "my natural language service account"
 
 gcloud iam service-accounts keys create ~/key.json \
-  --iam-account my-natlang-sa@${YOUR_PROJECT}.iam.gserviceaccount.com
+  --iam-account my-natlang-sa@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
 ## 4.1  Google Cloud Speech API 
 ```
