@@ -79,8 +79,6 @@ gcloud iam service-accounts keys create ~/key.json \
 ```
 ## 4.1  Google Cloud Speech API 
 ```
-export GOOGLE_APPLICATION_CREDENTIALS="/home/USER/key.json"
-
 wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud%3A%20Challenge%20Lab/speech-request.json
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @speech-request.json \ 
