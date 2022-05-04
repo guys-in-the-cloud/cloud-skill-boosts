@@ -15,7 +15,7 @@
 |Google Cloud Essential Skills: Challenge Lab |https://youtu.be/NMI4KZuBWMc|[Link to Google Cloud Essential Skills: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Google%20Cloud%20Essential%20Skills:%20Challenge%20Lab.md) |
 |Monitor and Log with Google Cloud Operations Suite: Challenge Lab |https://youtu.be/Pntqj1KmtB8|--|
 
-## TRACK2 CHALLENGE LABS
+# TRACK2 CHALLENGE LABS
 
 |  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
 | --------------- | --------------- | --------------- |
