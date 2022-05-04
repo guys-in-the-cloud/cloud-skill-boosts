@@ -37,7 +37,7 @@ gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 gcloud config set compute/zone ${REGION}-a
 ```
 ```
-gcloud dataproc clusters create sample-cluster
+gcloud dataproc clusters create sample-cluster --region ${REGION}
 ```
 - SSH into Dataproc Cluster
 ```
@@ -52,6 +52,7 @@ hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt
 ```
 gcloud dataproc jobs submit spark --cluster sample-cluster \
   --class org.apache.spark.examples.SparkPageRank \
+  --region $REGION \
   --jars file:///usr/lib/spark/examples/jars/spark-examples.jar -- /data.txt
 ```
 ## Dataprep Job
