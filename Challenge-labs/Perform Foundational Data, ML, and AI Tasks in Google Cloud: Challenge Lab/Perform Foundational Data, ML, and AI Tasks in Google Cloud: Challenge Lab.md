@@ -62,7 +62,7 @@ gcloud dataproc jobs submit spark --cluster sample-cluster \
 - Add the following Steps
  ![image](https://user-images.githubusercontent.com/104570014/166557351-1469d0e7-6a31-4919-a780-8074bb250653.png)
 
-- Follow this image given below 
+- Follow this image given below <br>
 ![image](https://user-images.githubusercontent.com/104570014/166623601-47373082-c027-4407-8ff1-472d7b1bc28a.png)
 
 # Task 4: AI
