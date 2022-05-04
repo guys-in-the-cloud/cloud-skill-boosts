@@ -19,4 +19,8 @@
 
 |  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
 | --------------- | --------------- | --------------- |
-| Build Interactive Apps with Google Assistant: Challenge Lab | https://youtu.be/DDPQcJAB-SA | [Link to Create and Manage Cloud Resources: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Create%20and%20Manage%20Cloud%20Resources%20Challenge%20Lab.md) |
+| Build Interactive Apps with Google Assistant: Challenge Lab |https://youtu.be/DDPQcJAB-SA| [Link to Build Interactive Apps with Google Assistant: Challenge Lab ](https://github.com/guys-in-the-cloud/cloud-skill-boosts/tree/main/Challenge-labs/Build%20Interactive%20Apps%20with%20Google%20Assistant:%20Challenge%20Lab) |
+| Build a Website on Google Cloud: Challenge Lab |https://youtu.be/_Gs6YPiJNGc| [Link to Build a Website on Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Build%20a%20Website%20on%20Google%20Cloud:%20Challenge%20Lab.md) |
+| Serverless Firebase Development: Challenge Lab|https://youtu.be/PzuhYkt3iDY| [Link to Serverless Firebase Development: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Serverless%20Firebase%20Development.md) |
+| Serverless Cloud Run Development: Challenge Lab|https://youtu.be/r2-5JJy6M5s| [Link to Serverless Cloud Run Development: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Serverless%20Cloud%20Run%20Development:%20Challenge%20Lab.md) |
+
