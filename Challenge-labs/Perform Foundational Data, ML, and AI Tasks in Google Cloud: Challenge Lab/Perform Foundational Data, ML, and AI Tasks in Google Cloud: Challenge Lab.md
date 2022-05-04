@@ -85,13 +85,15 @@ wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main
 
 curl -s -X POST -H "Content-Type: application/json" --data-binary @speech-request.json \ 
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > speech.json
-
+```
+```
 gsutil cp speech.json gs://$DEVSHELL_PROJECT_ID-marking/<changefilename>
 ```
 ## 4.2 Cloud Natural Language API
 ```
 gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > language.json
-
+```
+```
 gsutil cp language.json gs://$DEVSHELL_PROJECT_ID-marking/<changefilename>
 ```
 
@@ -106,7 +108,8 @@ curl -s -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer '$(gcloud auth print-access-token)'' \
     'https://videointelligence.googleapis.com/v1/videos:annotate' \
     -d @video-intelligence-request.json  > video.json
-  
+```
+```
 gsutil cp video.json gs://$DEVSHELL_PROJECT_ID-marking/<changefilename>
 ``` 
 
