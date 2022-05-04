@@ -63,7 +63,10 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images-v2.py .
 ```
 wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main/Challenge-labs/Integrate%20with%20Machine%20Learning%20APIs%3A%20Challenge%20Lab/analyze-images-v2.py
 ```
-
+- this command will change your Locale content
+```
+sed -i "s/'en'/'${LOCAL}'/g" analyze-images-v2.py
+```
 - In Cloud Shell run
 ```
 python3 analyze-images-v2.py $DEVSHELL_PROJECT_ID 
