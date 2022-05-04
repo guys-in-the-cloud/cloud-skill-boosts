@@ -52,12 +52,6 @@ gcloud iam service-accounts keys create sample-sa-key.json --iam-account sample-
 export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sample-sa-key.json
 ```
 
-1.6 Copying the base code from the bucket to the current directory
-
-```
-gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images-v2.py .
-```
-
 ## Download the file analyze-images-v2.py
 
 ```
