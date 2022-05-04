@@ -88,10 +88,11 @@ curl -s -X POST -H "Content-Type: application/json" --data-binary @speech-reques
 gsutil cp speech.json gs://$DEVSHELL_PROJECT_ID-marking/<changefilename>
 ```
 ## 4.2 Cloud Natural Language API
-
+```
 gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." > language.json
 
 gsutil cp language.json gs://$DEVSHELL_PROJECT_ID-marking/<changefilename>
+```
 
 # 4.3 Google Video Intelligence
 
