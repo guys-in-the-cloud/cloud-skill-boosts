@@ -69,7 +69,7 @@ sed -i "s/'en'/'${LOCAL}'/g" analyze-images-v2.py
 ```
 - In Cloud Shell run
 ```
-python3 analyze-images-v2.py $DEVSHELL_PROJECT_ID 
+python3 analyze-images-v2.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
 - Navigation Menu -> BigQuery, Run
 ```
