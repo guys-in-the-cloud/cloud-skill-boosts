@@ -57,8 +57,8 @@ gcloud dataproc jobs submit spark --cluster sample-cluster \
 ## Dataprep Job
 - Initialize Dataprep
 - Create flow
-- Import gs://cloud-training/gsp323/runs.csv
-- Create a Recipe
+- Import to GCS  gs://cloud-training/gsp323/runs.csv
+- Edit a Recipe
 - Add the following Steps
  ![image](https://user-images.githubusercontent.com/104570014/166557351-1469d0e7-6a31-4919-a780-8074bb250653.png)
 
