@@ -66,7 +66,7 @@ wget https://raw.githubusercontent.com/guys-in-the-cloud/cloud-skill-boosts/main
 
 - In Cloud Shell run
 ```
-python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
+python3 analyze-images.py $DEVSHELL_PROJECT_ID 
 ```
 - Navigation Menu -> BigQuery, Run
 ```
