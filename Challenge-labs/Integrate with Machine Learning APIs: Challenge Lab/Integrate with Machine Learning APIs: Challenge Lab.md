@@ -71,7 +71,7 @@ sed -i "s/'en'/'${LOCAL}'/g" analyze-images-v2.py
 ```
 python3 analyze-images-v2.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
-- Navigation Menu -> BigQuery, Run
+- Run this bigquerry command 
 ```
 bq query --use_legacy_sql=false "SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_text_detail GROUP BY locale ORDER BY lcount DESC"
 ```
