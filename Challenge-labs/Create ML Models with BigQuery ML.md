@@ -21,6 +21,7 @@ SELECT
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
     duration_minutes,
+    address as location
 FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
 JOIN
@@ -28,11 +29,12 @@ JOIN
 ON
     trips.start_station_name = stations.name
 WHERE
-    EXTRACT(YEAR FROM start_time) = 2018
+    EXTRACT(YEAR FROM start_time) = <replace year>
     AND duration_minutes > 0
 
 ```
 ## Task 3: Create the second machine learning model
+- 3.1 Querry 
 ```
 CREATE OR REPLACE MODEL austin.subscriber_model
 OPTIONS
@@ -43,10 +45,23 @@ SELECT
     subscriber_type,
     duration_minutes
 FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
-WHERE EXTRACT(YEAR FROM start_time) = 2018
+WHERE EXTRACT(YEAR FROM start_time) = <replace year>
+```
+- 3.2 Querry
+```
+CREATE OR REPLACE MODEL austin.subscriber_model
+OPTIONS
+  (model_type='linear_reg', labels=['duration_minutes']) AS
+SELECT
+    start_station_name,
+    EXTRACT(HOUR FROM start_time) AS start_hour,
+    subscriber_type,
+    duration_minutes
+FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
+WHERE EXTRACT(YEAR FROM start_time) = <replace year>
 ```
 ## Task 4: Evaluate the two machine learning models
-
+- 4.1 Querry
 ```
 -- Evaluation metrics for location_model
 SELECT
@@ -58,18 +73,20 @@ FROM
     start_station_name,
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
-    duration_minutes
+    duration_minutes,
+    address as location
   FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
   JOIN
    `bigquery-public-data.austin_bikeshare.bikeshare_stations` AS stations
   ON
     trips.start_station_name = stations.name
-  WHERE EXTRACT(YEAR FROM start_time) = 2019)
+  WHERE EXTRACT(YEAR FROM start_time) = <replace year> )
 )
 
-```
 
+```
+- 4.2 Querry 
 ```
 -- Evaluation metrics for subscriber_model
 SELECT
@@ -85,13 +102,13 @@ FROM
   FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
   WHERE
-    EXTRACT(YEAR FROM start_time) = 2019)
+    EXTRACT(YEAR FROM start_time) = <replace year>)
 )
 
 ```
 
 ## Task 5: Use the subscriber type machine learning model to predict average trip durations
-
+- 5.1 Querry
 ```
 SELECT
   start_station_name,
@@ -99,15 +116,16 @@ SELECT
 FROM
   `bigquery-public-data.austin_bikeshare.bikeshare_trips`
 WHERE
-  EXTRACT(YEAR FROM start_time) = 2019
+  EXTRACT(YEAR FROM start_time) = <replace year>
 GROUP BY
   start_station_name
 ORDER BY
   trips DESC
 
 ```
-
+- 5.2 Querry
 ```
+BigQuery Console Query Editor
 SELECT AVG(predicted_duration_minutes) AS average_predicted_trip_length
 FROM ML.predict(MODEL austin.subscriber_model, (
 SELECT
@@ -117,13 +135,14 @@ SELECT
     duration_minutes
 FROM
   `bigquery-public-data.austin_bikeshare.bikeshare_trips`
-WHERE
-  EXTRACT(YEAR FROM start_time) = 2019
+WHERE 
+  EXTRACT(YEAR FROM start_time) = <replace year>
   AND subscriber_type = 'Single Trip'
   AND start_station_name = '21st & Speedway @PCL'))
-
+  
 ```
 
-
-
+# Congratulations you've completed your challenge lab
+## Happy Learning
+## See you in the cloud...
 
