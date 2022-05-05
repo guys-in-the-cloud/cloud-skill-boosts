@@ -1,6 +1,6 @@
 # Create ML Models with BigQuery ML: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
+[YouTube Video Link](https://youtu.be/N5fpHSTvYFs)
 
 ## Task 1: Create a dataset to store your machine learning models
 ```
