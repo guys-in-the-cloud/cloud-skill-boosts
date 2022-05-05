@@ -1,6 +1,6 @@
 # cloud-skill-boosts (Qwiklabs) lab Solutions 
 
-# TRACK1 CHALLENGE LABS
+## TRACK1 CHALLENGE LABS
 
 
 
@@ -15,7 +15,7 @@
 |Google Cloud Essential Skills: Challenge Lab |https://youtu.be/NMI4KZuBWMc|[Link to Google Cloud Essential Skills: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Google%20Cloud%20Essential%20Skills:%20Challenge%20Lab.md) |
 |Monitor and Log with Google Cloud Operations Suite: Challenge Lab |https://youtu.be/Pntqj1KmtB8|--|
 
-# TRACK2 CHALLENGE LABS
+## TRACK2 CHALLENGE LABS
 
 |  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
 | --------------- | --------------- | --------------- |
@@ -23,4 +23,13 @@
 | Build a Website on Google Cloud: Challenge Lab |https://youtu.be/_Gs6YPiJNGc| [Link to Build a Website on Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Build%20a%20Website%20on%20Google%20Cloud:%20Challenge%20Lab.md) |
 | Serverless Firebase Development: Challenge Lab|https://youtu.be/PzuhYkt3iDY| [Link to Serverless Firebase Development: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Serverless%20Firebase%20Development.md) |
 | Serverless Cloud Run Development: Challenge Lab|https://youtu.be/r2-5JJy6M5s| [Link to Serverless Cloud Run Development: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Serverless%20Cloud%20Run%20Development:%20Challenge%20Lab.md) |
+
+
+## TRACK3 CHALLENGE LABS
+|  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
+| --------------- | --------------- | --------------- |
+| Insights from Data with BigQuery: Challenge Lab |https://youtu.be/p5stQukFmR0| [Link to Insights from Data with BigQuery: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Insights%20From%20Data%20With%20Bigquery%20Challenge%20Lab.md) |
+| Create ML Models with BigQuery ML: Challenge Lab |https://youtu.be/N5fpHSTvYFs| [Link to Create ML Models with BigQuery ML: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Create%20ML%20Models%20with%20BigQuery%20ML.md) |
+| Engineer Data in Google Cloud: Challenge Lab|https://youtu.be/wc3h_r8d6hQ| [Link to Engineer Data in Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab.md) |
+|Build and Optimize Data Warehouses with BigQuery: Challenge Lab|https://youtu.be/XFNcDCkzCVM| [Link to Build and Optimize Data Warehouses with BigQuery: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Build%20and%20Optimize%20Data%20Warehouses%20with%20BigQuery:%20Challenge%20Lab.md) |
 
