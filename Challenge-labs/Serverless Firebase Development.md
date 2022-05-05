@@ -1,6 +1,6 @@
 # Serverless Firebase Development
 
-[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
+[YouTube Video Link](https://youtu.be/PzuhYkt3iDY)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
