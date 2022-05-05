@@ -1,6 +1,6 @@
 # Engineer Data in Google Cloud: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/RldOlqOGQ_g)
+[YouTube Video Link](https://youtu.be/wc3h_r8d6hQ)
 
 ## Task 1: Clean your training data
 - Run this Querry (change the values given in lab manual)
