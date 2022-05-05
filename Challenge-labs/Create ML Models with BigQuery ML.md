@@ -125,7 +125,6 @@ ORDER BY
 ```
 - 5.2 Querry
 ```
-BigQuery Console Query Editor
 SELECT AVG(predicted_duration_minutes) AS average_predicted_trip_length
 FROM ML.predict(MODEL austin.subscriber_model, (
 SELECT
