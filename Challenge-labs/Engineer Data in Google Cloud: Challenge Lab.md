@@ -57,3 +57,8 @@ SELECT * FROM ML.PREDICT(MODEL taxirides.<Model Name_as_mention_in_lab>,(
 SELECT * FROM taxirides.report_prediction_data)
 )
 ```
+
+# Congratulations you've completed your challenge lab
+## Happy Learning
+## See you in the cloud...
+
