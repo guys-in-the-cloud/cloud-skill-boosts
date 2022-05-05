@@ -1,6 +1,6 @@
 # Build a Website on Google Cloud: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
+[YouTube Video Link](https://youtu.be/_Gs6YPiJNGc)
 
 ## Defining some variables given by Cloud Skill Boosts
 
