@@ -33,3 +33,14 @@
 | Engineer Data in Google Cloud: Challenge Lab|https://youtu.be/wc3h_r8d6hQ| [Link to Engineer Data in Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Engineer%20Data%20in%20Google%20Cloud:%20Challenge%20Lab.md) |
 |Build and Optimize Data Warehouses with BigQuery: Challenge Lab|https://youtu.be/XFNcDCkzCVM| [Link to Build and Optimize Data Warehouses with BigQuery: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Build%20and%20Optimize%20Data%20Warehouses%20with%20BigQuery:%20Challenge%20Lab.md) |
 
+
+## TRACK4 CHALLENGE LABS
+
+|  LAB_NAME |YOUTUBE VIDEO LINK | STEP BY STEP INSTRUCTION SHEET |
+| --------------- | --------------- | --------------- |
+| Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab |https://youtu.be/vJKekSjT_Fk| [Link to Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab/Perform%20Foundational%20Data%2C%20ML%2C%20and%20AI%20Tasks%20in%20Google%20Cloud:%20Challenge%20Lab.md) |
+| Explore Machine Learning Models with Explainable AI: Challenge Lab |https://youtu.be/UWEi6LBJe0Y| [Link to Explore Machine Learning Models with Explainable AI: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Explore%20Machine%20Learning%20Models%20With%20Explainable.md) |
+| Integrate with Machine Learning APIs: Challenge Lab|https://youtu.be/JnLoobzhlTI| [Link to Integrate with Machine Learning APIs: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Integrate%20with%20Machine%20Learning%20APIs:%20Challenge%20Lab/Integrate%20with%20Machine%20Learning%20APIs:%20Challenge%20Lab.md) |
+|Ensure Access & Identity in Google Cloud: Challenge Lab|https://youtu.be/m90leBx9heI| [Link to Ensure Access & Identity in Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Ensure%20Access%20%26%20Identity%20in%20Google%20Cloud:%20Challenge%20Lab/Ensure%20Access%20%26%20Identity%20in%20Google%20Cloud:%20Challenge%20Lab.md) |
+
+
