@@ -1,6 +1,6 @@
 # Ensure Access & Identity in Google Cloud: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
+[YouTube Video Link](https://youtu.be/m90leBx9heI)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
