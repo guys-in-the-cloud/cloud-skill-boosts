@@ -1,6 +1,6 @@
 # Insights From Data With Bigquery Challenge Lab 
 
-[YouTube Video Link](https://youtu.be/D9X8rwgx4xM)
+[YouTube Video Link](https://youtu.be/p5stQukFmR0)
 
 ## Task - 1 : Total Confirmed Cases
 
