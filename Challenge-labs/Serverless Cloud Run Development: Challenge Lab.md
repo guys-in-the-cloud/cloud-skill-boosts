@@ -1,6 +1,6 @@
 # Serverless Cloud Run Development: Challenge Lab
 
-[YouTube Video Link](https://youtu.be/NMI4KZuBWMc)
+[YouTube Video Link](https://youtu.be/r2-5JJy6M5s)
 
 ## Let's start with defining some variables given by Cloud Skill Boosts
 
