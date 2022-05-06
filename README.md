@@ -44,4 +44,4 @@
 |Ensure Access & Identity in Google Cloud: Challenge Lab|https://youtu.be/m90leBx9heI| [Link to Ensure Access & Identity in Google Cloud: Challenge Lab](https://github.com/guys-in-the-cloud/cloud-skill-boosts/blob/main/Challenge-labs/Ensure%20Access%20%26%20Identity%20in%20Google%20Cloud:%20Challenge%20Lab/Ensure%20Access%20%26%20Identity%20in%20Google%20Cloud:%20Challenge%20Lab.md) |
 
 
-                                                                                                                                copyright('Copyright (c) 2022.');
+                                                copyright('Copyright (c) 2014, Guys in the Cloud');
