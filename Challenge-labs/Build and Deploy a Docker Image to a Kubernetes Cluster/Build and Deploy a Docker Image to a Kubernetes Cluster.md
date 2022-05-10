@@ -1,4 +1,4 @@
-# Build a Website on Google Cloud: Challenge Lab
+# Build and Deploy a Docker Image to a Kubernetes Cluster
 
 [YouTube Video Link](*)
 
