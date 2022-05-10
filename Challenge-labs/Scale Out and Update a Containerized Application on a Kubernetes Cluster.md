@@ -13,12 +13,12 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/echo-web-v2.tar.gz .
 tar -xvf echo-web-v2.tar.gz
 ```
 
-## Task 2: Build a tagged Docker Image & Push the image to the Google Container Registry
+## Task 1: Build a echo-app:v2 tagged Docker Image & Push the image to the Google Container Registry
 ```
 gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .
 ```
 
-## Task 3: Deploy the application to the Kubernetes Cluster
+## Task 2: Deploy the echo-app:v2 application image to the Kubernetes Cluster
 
 3.1 Connect to the previously created cluster so deployment of application
 ```
@@ -33,14 +33,15 @@ kubectl create deployment echo-web --image=gcr.io/$DEVSHELL_PROJECT_ID/echo-app:
 ```
 kubectl expose deployment echo-web --type=LoadBalancer --port=80 --target-port=8000
 ```
-3.4 
+## Task 2: Scale your deployment to 2
 ```
 kubectl scale deploy echo-web --replicas=2
 ```
-3.5 
+## Task 4: Validate the application, It should working on v 2.0.0
 ```
 kubectl port-forward service/echo-web 8080:80
 ```
+after this command, click on web preview on port 8080 & you can see in your browser that it is showing v 2.0.0
 
 # Congratulations! you've completed your challenge lab
 ## Happy Learning
