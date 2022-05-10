@@ -10,12 +10,12 @@ gsutil cp gs://$DEVSHELL_PROJECT_ID/echo-web-v2.tar.gz .
 ```
 2 Extract the downloaded application file 
 ```
-tar -xvf resources-echo-web-v2.tar.gz
+tar -xvf echo-web-v2.tar.gz
 ```
 
 ## Task 2: Build a tagged Docker Image & Push the image to the Google Container Registry
 ```
-gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1 .
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2 .
 ```
 
 ## Task 3: Deploy the application to the Kubernetes Cluster
@@ -27,11 +27,19 @@ gcloud container clusters get-credentials echo-cluster --zone us-central1-a --pr
 
 3.2 Deploy the sample application image, which we created in the previous step
 ```
-kubectl create deployment echo-web --image=gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1
+kubectl create deployment echo-web --image=gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v2
 ```
 3.3 Expose your deployment by creating a service
 ```
 kubectl expose deployment echo-web --type=LoadBalancer --port=80 --target-port=8000
+```
+3.4 
+```
+kubectl scale deploy echo-web --replicas=2
+```
+3.5 
+```
+kubectl port-forward service/echo-web 8080:80
 ```
 
 # Congratulations! you've completed your challenge lab
