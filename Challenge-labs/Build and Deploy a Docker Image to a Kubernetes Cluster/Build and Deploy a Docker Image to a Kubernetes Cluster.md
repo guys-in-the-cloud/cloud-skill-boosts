@@ -36,6 +36,7 @@ kubectl create deployment echo-web --image=gcr.io/$DEVSHELL_PROJECT_ID/echo-app:
 ```
 kubectl expose deployment echo-web --type=LoadBalancer --port=80 --target-port=8000
 ```
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ YAHA TAK KARDE+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ## Task 2: Create a kubernetes cluster and deploy the application
 
 2.1 Setup your default zone for kubernetes deployment 
