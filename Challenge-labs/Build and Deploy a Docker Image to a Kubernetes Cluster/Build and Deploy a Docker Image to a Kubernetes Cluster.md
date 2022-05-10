@@ -10,7 +10,7 @@ wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/raw/main/Challenge-
 ```
 2 Extract the downloaded application file 
 ```
-tar -xvf echo-web.tar.gz
+tar -xvf resources-echo-web.tar.g
 ```
 ## Task 1: Create a Kubernetes Cluster 
 ```
@@ -26,16 +26,16 @@ gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1 .
 
 1.2 Push the image to the Google Container Registry
 ```
-cd ~/monolith-to-microservices
-./setup.sh
+gcloud container clusters get-credentials echo-cluster --zone us-central1-a --project $DEVSHELL_PROJECT_ID
 ```
 
 1.3 change to application directory & Build & push your application container iamge to the Google Container Registry
 ```
-cd ~/monolith-to-microservices/monolith
-gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/${MONOLITH_IDENTIFIER}:1.0.0 .
+kubectl create deployment echo-web --image=gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1
 ```
-
+```
+kubectl expose deployment echo-web --type=LoadBalancer --port=80 --target-port=8000
+```
 ## Task 2: Create a kubernetes cluster and deploy the application
 
 2.1 Setup your default zone for kubernetes deployment 
