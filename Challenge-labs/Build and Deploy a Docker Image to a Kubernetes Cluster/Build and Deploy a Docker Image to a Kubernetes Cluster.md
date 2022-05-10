@@ -10,7 +10,7 @@ wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/raw/main/Challenge-
 ```
 2 Extract the downloaded application file 
 ```
-tar -xvf resources-echo-web-v2.tar.gz
+tar -xvf resources-echo-web.tar.gz
 ```
 ## Task 1: Create a Kubernetes Cluster 
 ```
