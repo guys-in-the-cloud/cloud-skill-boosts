@@ -42,6 +42,7 @@ kubectl scale deploy echo-web --replicas=2
 kubectl port-forward service/echo-web 8080:80
 ```
 after this command, click on web preview on port 8080 & you can see in your browser that it is showing v 2.0.0
+![image](https://user-images.githubusercontent.com/104570014/167699321-835f2885-3c0a-49bb-a4cf-0e1d290e5ca3.png)
 
 # Congratulations! you've completed your challenge lab
 ## Happy Learning
