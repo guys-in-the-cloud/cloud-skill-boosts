@@ -4,28 +4,27 @@
 
 ## prerequisites 
 
-before starting this lab, we need to download the source code of the application which is given in the lab instruction.
+1 Before starting this lab, we need to download the source code of the application which is given in the lab instruction.
 ```
 wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/raw/main/Challenge-labs/Build%20and%20Deploy%20a%20Docker%20Image%20to%20a%20Kubernetes%20Cluster/resources-echo-web.tar.gz
 ```
-1.1
+2 Extract the downloaded application file 
 ```
+tar -xvf echo-web.tar.gz
 ```
-
-
+## Task 1: Create a Kubernetes Cluster 
 ```
-gcloud services enable cloudbuild.googleapis.com
-gcloud services enable container.googleapis.com
-```
-
-## Task 1: Download the monolith code and build your container
-
-1.1 Clone the application code & scripts
-```
-git clone https://github.com/googlecodelabs/monolith-to-microservices.git
+gcloud container clusters create echo-cluster --num-nodes 2 --zone us-central1-a --machine-type n1-standard-2
 ```
 
-1.2 change to script directory & setup environment for application by running script
+## Task 2: Build a tagged Docker Image & Push the image to the Google Container Registry
+
+1.1 Build a tagged Docker Image
+```
+gcloud builds submit --tag gcr.io/$DEVSHELL_PROJECT_ID/echo-app:v1 .
+```
+
+1.2 Push the image to the Google Container Registry
 ```
 cd ~/monolith-to-microservices
 ./setup.sh
