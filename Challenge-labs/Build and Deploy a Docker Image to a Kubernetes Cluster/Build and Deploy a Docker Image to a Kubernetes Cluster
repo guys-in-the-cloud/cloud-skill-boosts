@@ -6,7 +6,10 @@
 
 before starting this lab, we need to download the source code of the application which is given in the lab instruction.
 ```
-wget https://github.com/googlecodelabs/monolith-to-microservices.git
+wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/raw/main/Challenge-labs/Build%20and%20Deploy%20a%20Docker%20Image%20to%20a%20Kubernetes%20Cluster/resources-echo-web.tar.gz
+```
+1.1
+```
 ```
 
 
