@@ -82,5 +82,7 @@ ssh $JUICE_SHOP_VM_INTERNAL_IP
 If prompted, please type yes & then enter two times. You'll see you're successfully login to the juice-shop VM from bastion VM, It means our SSH
 firewall is working perfectly
 
+If you get <b> Public key access denied</b> do the process manually
+
 # Congratulations! you've completed your challenge lab
 ## Happy Learning
