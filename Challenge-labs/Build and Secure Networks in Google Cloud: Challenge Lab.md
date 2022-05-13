@@ -83,7 +83,7 @@ If prompted, please type yes & then enter two times. You'll see you're successfu
 firewall is working perfectly
 
 If you get <b> Public key access denied</b> 
-Use this cmd 
+Use this command:-
 ```
 gcloud compute ssh juice-shop --internal-ip
 ```
