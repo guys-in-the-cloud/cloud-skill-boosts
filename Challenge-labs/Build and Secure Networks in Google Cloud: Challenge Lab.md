@@ -82,7 +82,11 @@ ssh $JUICE_SHOP_VM_INTERNAL_IP
 If prompted, please type yes & then enter two times. You'll see you're successfully login to the juice-shop VM from bastion VM, It means our SSH
 firewall is working perfectly
 
-If you get <b> Public key access denied</b> do the process manually
+If you get <b> Public key access denied</b> 
+Use this cmd 
+```
+gcloud compute ssh juice-shop --internal-ip
+```
 
 SSH to bastion host via IAP and juice-shop via bastion
 
