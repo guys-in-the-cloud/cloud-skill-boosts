@@ -61,6 +61,7 @@ kubectl get service gceme-frontend -n production
 Branch Sources: Git
 - Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
 - Credentials: qwiklabs service account
+- Scan Multibranch Pipeline Triggers--> enable Periodically if not otherwise run--> interval--> 1 minute
 
 ## Task3 Check that Jenkins has deployed a canary pipeline
 ```
