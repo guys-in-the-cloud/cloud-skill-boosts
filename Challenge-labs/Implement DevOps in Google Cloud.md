@@ -38,7 +38,7 @@ kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
 
-- configure Credential 
+- configure Credential--> Manage jenkins--> Manage credentials-->global-->Google Service Account from metadata--> project name
 - Create Multibranch pipeline of sample-app 
 ## Task2 Check that Jenkins has deployed a development pipeline
 ```
