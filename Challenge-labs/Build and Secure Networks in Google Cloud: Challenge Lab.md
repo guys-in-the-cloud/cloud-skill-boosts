@@ -84,5 +84,7 @@ firewall is working perfectly
 
 If you get <b> Public key access denied</b> do the process manually
 
+SSH to bastion host via IAP and juice-shop via bastion
+
 # Congratulations! you've completed your challenge lab
 ## Happy Learning
