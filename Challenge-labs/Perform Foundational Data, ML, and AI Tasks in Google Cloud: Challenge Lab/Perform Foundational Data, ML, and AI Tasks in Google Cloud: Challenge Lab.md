@@ -27,11 +27,11 @@ bq mk $BIGQUERY_DATASET_NAME
 ```
 gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 ```
-# Task 2: Run a simple Dataproc job
+
 ![image](https://user-images.githubusercontent.com/104570014/166552910-15c708b1-68a3-4b5b-bf32-af1e174472ec.png)
 
 
-# Task 3: Run a simple Dataprep job
+# Task 2: Run a simple Dataproc job
 - Set Region (if in case you get region us-east1 instead of -a replace -b)
 ```
 gcloud config set compute/zone ${REGION}-a
@@ -55,7 +55,7 @@ gcloud dataproc jobs submit spark --cluster sample-cluster \
   --region $REGION \
   --jars file:///usr/lib/spark/examples/jars/spark-examples.jar -- /data.txt
 ```
-## Dataprep Job
+## Task 3 Dataprep Job
 - Initialize Dataprep
 - Create flow
 - Import to GCS  gs://cloud-training/gsp323/runs.csv
