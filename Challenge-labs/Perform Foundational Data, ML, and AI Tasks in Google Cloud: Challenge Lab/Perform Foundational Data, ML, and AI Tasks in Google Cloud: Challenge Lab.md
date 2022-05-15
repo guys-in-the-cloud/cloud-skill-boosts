@@ -27,7 +27,7 @@ bq mk $BIGQUERY_DATASET_NAME
 ```
 gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 ```
-# Task 2: Run a simple Dataproc job
+# Task 2: Run a simple Dataflow job
 ![image](https://user-images.githubusercontent.com/104570014/166552910-15c708b1-68a3-4b5b-bf32-af1e174472ec.png)
 
 
