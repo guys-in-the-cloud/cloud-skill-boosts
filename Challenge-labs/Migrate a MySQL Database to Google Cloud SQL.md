@@ -29,9 +29,7 @@ mysql --host=$CLOUD_SQL_IP --user=root -pPassword1* --verbose wordpress < wordpr
 
 sudo service apache2 restart
 
-cd /var/www/html/wordpress
-
-sudo nano wp-config.php
+sudo sed -i "s/localhost/$CLOUD_SQL_IP/g" /var/www/html/wordpress/wp-config.php
 
 ## Task 2 : Check that there is a user database on the Cloud SQL instance
 ```
