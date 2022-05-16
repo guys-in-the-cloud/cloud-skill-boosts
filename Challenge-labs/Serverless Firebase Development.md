@@ -1,4 +1,4 @@
-# Serverless Firebase Development
+# Serverless Firebase Development: Challenge Lab
 
 [YouTube Video Link](https://youtu.be/PzuhYkt3iDY)
 
