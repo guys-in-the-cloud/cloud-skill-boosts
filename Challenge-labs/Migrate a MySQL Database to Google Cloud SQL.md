@@ -15,7 +15,7 @@ gcloud sql instances patch wordpress --authorized-networks $BLOG_VM_EXTERNAL_IP 
 
 gcloud compute ssh blog --zone=us-central1-a
 
-export CLOUD_SQL_IP=$(gcloud sql instances describe Wordpress --project $DEVSHELL_PROJECT_ID --format 'value(ipAddresses.ipAddress)')
+export CLOUD_SQL_IP=$(gcloud sql instances describe wordpress --format 'value(ipAddresses.ipAddress)')
 
 mysql --host=$CLOUD_SQL_IP --user=root --password=Password1*
 
