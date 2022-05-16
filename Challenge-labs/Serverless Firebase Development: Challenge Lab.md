@@ -20,8 +20,13 @@ Clone the official git repo for this challenge lab
 git clone https://github.com/rosera/pet-theory.git
 ```
 
-# Task 1: Create a Firestore database
+# Task 1: Create a Firestore database Manualy
 database
+
+|Field | 	Value |
+| ------------- | ------------- |
+| Cloud Firestore | 	Native Mode  |
+| Location  | 	Nam5 (United States)  |
 
 # Task 2: Populate the Database
 ```
