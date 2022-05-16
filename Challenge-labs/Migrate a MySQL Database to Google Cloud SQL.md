@@ -5,12 +5,11 @@
 
 ## Task 1: Check that there is a Cloud SQL instance
 
-gcloud sql instances create wordpress --tier=db-n1-standard-1 --activation-policy=ALWAYS --gce-zone=us-central1-a --database-version=MYSQL_5_7
+gcloud sql instances create wordpress --tier=db-n1-standard-1 --activation-policy=ALWAYS --zone=us-central1-a --database-version=MYSQL_5_7
 
 gcloud sql users set-password --host % root --instance wordpress --password Password1*
 
-export BLOG_VM_EXTERNAL_IP=gcloud compute instances describe blog-vm \
-  --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
+export BLOG_VM_EXTERNAL_IP=$(gcloud compute instances describe blog --zone=us-central1-a --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 gcloud sql instances patch wordpress --authorized-networks $BLOG_VM_EXTERNAL_IP --quiet
 
