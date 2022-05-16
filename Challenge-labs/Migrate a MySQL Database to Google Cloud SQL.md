@@ -5,7 +5,7 @@
 
 ## Task 1: Check that there is a Cloud SQL instance
 
-cloud sql instances create wordpress --tier=db-n1-standard-1 --activation-policy=ALWAYS --gce-zone=us-central1-a --database-version=MYSQL_5_7
+gcloud sql instances create wordpress --tier=db-n1-standard-1 --activation-policy=ALWAYS --gce-zone=us-central1-a --database-version=MYSQL_5_7
 
 gcloud sql users set-password --host % root --instance wordpress --password Password1*
 
