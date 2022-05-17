@@ -16,12 +16,12 @@ gcloud compute firewall-rules create rdp-ingress-fw-rule --allow=tcp:3389 --sour
 ```
 ## Task 4: A Windows compute instance called vm-bastionhost exists that has a public ip-address to which the TCP port 3389 firewall rule applies.
 ```
-gcloud compute instances create vm-bastionhost --zone=us-central1-a --machine-type=e2-medium --network-interface=subnet=securenetwork-subnet --network-interface=subnet=data-us-central1,no-address --tags=allow-rdp-traffic --image=projects/windows-cloud/global/images/windows-server-2016-dc-v20220513
+gcloud compute instances create vm-bastionhost --zone=us-central1-a --machine-type=e2-medium --network-interface=subnet=securenetwork-subnet --network-interface=subnet=default,no-address --tags=allow-rdp-traffic --image=projects/windows-cloud/global/images/windows-server-2016-dc-v20220513
 ```
 
 ## Task 5: A Windows compute instance called vm-securehost exists that does not have a public ip-address
 ```
-gcloud compute instances create vm-securehost --zone=us-central1-a --machine-type=e2-medium --network-interface=subnet=securenetwork-subnet,no-address --network-interface=subnet=data-us-central1,no-address --tags=allow-rdp-traffic --image=projects/windows-cloud/global/images/windows-server-2016-dc-v20220513
+gcloud compute instances create vm-securehost --zone=us-central1-a --machine-type=e2-medium --network-interface=subnet=securenetwork-subnet,no-address --network-interface=subnet=default,no-address --tags=allow-rdp-traffic --image=projects/windows-cloud/global/images/windows-server-2016-dc-v20220513
 
 ```
 ## Task 6: The vm-securehost is running Microsoft IIS web server software.
