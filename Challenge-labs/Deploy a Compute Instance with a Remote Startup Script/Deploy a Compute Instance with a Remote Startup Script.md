@@ -39,8 +39,7 @@ gcloud compute instances reset lab-monitor --zone us-central1-a
 
 4.1 Exporting external IP of the VM to a variable
 ```
-export VM_EXTERNAL_IP=${gcloud compute instances describe lab-monitor \
-  --format='get(networkInterfaces[0].accessConfigs[0].natIP)'}
+export VM_EXTERNAL_IP=$(gcloud compute instances describe lab-monitor --zone=us-central1-a --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 ```
 Now, let's validate that we've installed a webserver successfully & it is serving on port 80
 ```
