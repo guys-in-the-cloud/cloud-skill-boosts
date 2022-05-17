@@ -37,8 +37,7 @@ Now, copy the password for app_admin user, we need this to login into bastion vm
 ![image](https://user-images.githubusercontent.com/104570014/168893438-8c8968d9-08b3-4f92-b13e-6ef8c7a7a6e6.png)
 ![image](https://user-images.githubusercontent.com/104570014/168893562-601a4d6a-710a-4124-91fd-5176cfad5bd1.png)
 ![image](https://user-images.githubusercontent.com/104570014/168893704-1500a6fa-0a29-4926-be2b-35078a8e0a12.png)
-![image](https://user-images.githubusercontent.com/104570014/168894304-e4b98a9c-fb33-4e9e-8f34-cb40ece486e9.png)
-
+- Click next 
 - Click on install 
 
 
