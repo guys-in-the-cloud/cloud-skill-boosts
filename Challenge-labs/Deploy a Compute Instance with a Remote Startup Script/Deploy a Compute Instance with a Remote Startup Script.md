@@ -17,12 +17,8 @@ wget https://github.com/guys-in-the-cloud/cloud-skill-boosts/raw/main/Challenge-
 gsutil cp resources-install-web.sh gs://$DEVSHELL_PROJECT_ID
 ```
 ## Task 2: Confirm that a compute instance has been created that has a remote startup script called install-web.sh configured
-```
-gcloud compute instances create startup-script-vm \
-  --image-project=debian-cloud \
-  --image-family=debian-10 \
-  --zone=us-central1-b \
-  --metadata=startup-script-url=https://storage.googleapis.com/$DEVSHELL_PROJECT_ID/resources-install-web.sh
+``` 
+gcloud compute instances add-metadata lab-monitor --metadata startup-script-url=gs://$DEVSHELL_PROJECT_ID/resources-install-web.sh --zone us-central1-a
 ```
 
 ## Task 3: Confirm that a HTTP access firewall rule exists with tag that applies to that virtual machine
@@ -33,13 +29,13 @@ gcloud compute firewall-rules create http-fw-rule --allow=tcp:80 --source-ranges
 ```
 3.2 Update the previously created VM & add network tag to the VM to allow http traffic
 ```
-gcloud compute instances add-tags startup-script-vm --tags=allow-http-traffic --zone=us-central1-b
+gcloud compute instances add-tags lab-monitor --tags=allow-http-traffic --zone=us-central1-a
 ```
 ## Task 4: Connect to the server ip-address using HTTP and get a non-error response
 
 4.1 Exporting external IP of the VM to a variable
 ```
-export VM_EXTERNAL_IP=${gcloud compute instances describe startup-script-vm \
+export VM_EXTERNAL_IP=${gcloud compute instances describe lab-monitor \
   --format='get(networkInterfaces[0].accessConfigs[0].natIP)'}
 ```
 Now, let's validate that we've installed a webserver successfully & it is serving on port 80
