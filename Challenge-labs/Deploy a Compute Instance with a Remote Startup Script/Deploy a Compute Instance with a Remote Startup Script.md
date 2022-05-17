@@ -6,7 +6,7 @@
 
 1.1 Creating a fine-grained type of bucket
 ```
-gsutil mb -b on gs://$DEVSHELL_PROJECT_ID
+gsutil mb -b off gs://$DEVSHELL_PROJECT_ID
 ```
 1.2 Downloading a sample script given in the lab instructions
 ```
