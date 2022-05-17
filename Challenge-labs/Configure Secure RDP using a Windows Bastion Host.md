@@ -30,6 +30,20 @@ gcloud compute reset-windows-password vm-bastionhost --user app_admin --zone us-
 ```
 Now, copy the password for app_admin user, we need this to login into bastion vm 
 
+## Manaul steps
+- Click on Add roles and features 
+![image](https://user-images.githubusercontent.com/104570014/168892931-33d20ae2-c0c5-424b-af2f-f73e5ae78368.png)
+![image](https://user-images.githubusercontent.com/104570014/168893306-de8312ea-8d42-475c-b93b-fd06e32387c6.png)
+![image](https://user-images.githubusercontent.com/104570014/168893438-8c8968d9-08b3-4f92-b13e-6ef8c7a7a6e6.png)
+![image](https://user-images.githubusercontent.com/104570014/168893562-601a4d6a-710a-4124-91fd-5176cfad5bd1.png)
+![image](https://user-images.githubusercontent.com/104570014/168893704-1500a6fa-0a29-4926-be2b-35078a8e0a12.png)
+![image](https://user-images.githubusercontent.com/104570014/168894304-e4b98a9c-fb33-4e9e-8f34-cb40ece486e9.png)
+
+- Click on install 
+
+
+
+
 # Congratulations you've completed your challenge lab
 ## Happy Learning
 ## See you in the cloud...
