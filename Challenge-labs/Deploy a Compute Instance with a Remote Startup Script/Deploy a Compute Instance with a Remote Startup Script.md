@@ -31,6 +31,10 @@ gcloud compute firewall-rules create http-fw-rule --allow=tcp:80 --source-ranges
 ```
 gcloud compute instances add-tags lab-monitor --tags=allow-http-traffic --zone=us-central1-a
 ```
+3.3 Reset the lab-monitor vm so that our script will be applied 
+```
+gcloud compute instances reset lab-monitor --zone us-central1-a
+```
 ## Task 4: Connect to the server ip-address using HTTP and get a non-error response
 
 4.1 Exporting external IP of the VM to a variable
