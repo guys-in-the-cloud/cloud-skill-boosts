@@ -90,5 +90,7 @@ gcloud compute ssh juice-shop --internal-ip
 
 SSH to bastion host via IAP and juice-shop via bastion
 
-# Congratulations! you've completed your challenge lab
+
+# Congratulations you've completed your challenge lab
 ## Happy Learning
+## See you in the cloud...
