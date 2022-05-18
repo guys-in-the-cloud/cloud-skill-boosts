@@ -1,4 +1,4 @@
-# Build and Secure Networks in Google Cloud - Challenge Lab
+# Deploy a Compute Instance with a Remote Startup Script
 
 [YouTube Video Link](https://youtu.be/ZdZ3SiarZrs)
 
