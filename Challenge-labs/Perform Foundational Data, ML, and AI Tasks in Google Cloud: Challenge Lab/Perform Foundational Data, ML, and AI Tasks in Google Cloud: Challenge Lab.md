@@ -41,7 +41,7 @@ gcloud dataproc clusters create sample-cluster --region ${REGION}
 ```
 - SSH into Dataproc Cluster
 ```
-gcloud compute ssh sample-cluster-m --zone=${REGION}-a
+gcloud compute ssh sample-cluster-m --zone=${REGION}-b
 ```
 
 ```
