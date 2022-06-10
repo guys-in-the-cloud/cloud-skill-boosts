@@ -34,7 +34,7 @@ gsutil mb gs://$CLOUD_STORAGE_BUCKET_NAME
 # Task 2: Run a simple Dataproc job
 - Set Region (if in case you get region us-east1 instead of -a replace -b)
 ```
-gcloud config set compute/zone ${REGION}-a
+gcloud config set compute/zone ${REGION}-b
 ```
 ```
 gcloud dataproc clusters create sample-cluster --region ${REGION}
