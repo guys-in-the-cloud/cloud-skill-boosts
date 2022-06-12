@@ -40,6 +40,12 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
 
 - configure Credential--> Manage jenkins--> Manage credentials-->global-->Google Service Account from metadata--> project name
 - Create Multibranch pipeline of sample-app 
+- Scan multibranch Pipeline Triggers
+- Periodically if not otherwise run--> 1 min
+Branch Sources: Git
+- Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
+- Credentials: qwiklabs service account
+- Scan Multibranch Pipeline Triggers--> enable Periodically if not otherwise run--> interval--> 1 minute
 ## Task2 Check that Jenkins has deployed a development pipeline
 ```
 cd sample-app
@@ -58,10 +64,7 @@ sed -i "s/1.0.0/$VERSION/g" main.go
 kubectl get svc
 kubectl get service gceme-frontend -n production
 ```
-Branch Sources: Git
-- Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
-- Credentials: qwiklabs service account
-- Scan Multibranch Pipeline Triggers--> enable Periodically if not otherwise run--> interval--> 1 minute
+
 
 ## Task3 Check that Jenkins has deployed a canary pipeline
 ```
