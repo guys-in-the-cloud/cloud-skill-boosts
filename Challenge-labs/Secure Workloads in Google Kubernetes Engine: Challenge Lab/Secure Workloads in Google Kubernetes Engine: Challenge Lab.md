@@ -30,15 +30,15 @@ gcloud container clusters create $CLUSTER_NAME \
    --enable-network-policy
 ```
 ```
-gcloud sql instances create $CLOUD_SQL_INSTANCE Instance  --region us-central1
+gcloud sql instances create $CLOUD_SQL_INSTANCE --region us-central1
 ```
+
+- Create database - wordpress
+- Add user - wordpress (no password)
 
 refresh both new windows and check the work and wait until you get green check mark
 ************************************************************************
 Task 2: Setup wordpress
-Create database - wordpress
-Add user - wordpress (no password)
-
 
 Service account
 ```
