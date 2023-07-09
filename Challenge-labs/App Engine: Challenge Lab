@@ -1,0 +1,39 @@
+Set UP:
+
+gcloud auth list
+
+gcloud config list project
+
+gcloud config set compute/region "filled in at lab start"
+-----------------------------------------------------------------------------------
+
+Task 2:
+
+git clone https://github.com/GoogleCloudPlatform/php-docs-samples.git
+
+cd php-docs-samples/appengine/standard/helloworld
+-----------------------------------------------------------------------------------
+
+Task 3:
+
+gcloud app deploy
+
+Enter "Y"
+------------------------------------------------------------------------------------
+
+Task 4:
+
+gcloud app browse
+-------------------------------------------------------------------------------------
+
+Task 5:
+
+nano index.php
+
+change "hello world!" to "goodbye world!"
+
+CTRL + X > Y > Enter
+
+gcloud app deploy
+
+Enter "Y"
