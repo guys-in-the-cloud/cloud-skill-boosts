@@ -1,125 +1,123 @@
-# Set Up and Configure a Cloud Environment in Google Cloud: Challenge Lab
+# Implement DevOps in Google Cloud: Challenge Lab
+[YouTube Video Link](https://youtu.be/cHfKWcQglbo)
 
-[YouTube Video Link](https://youtu.be/uKXyvbhFx6o)
-
-## Define Variable
+## Let's start with defining some variables given by Cloud Skill Boosts
 ```
-export USER_NAME2=
-```
-## Task 1: Create development VPC 
-```
-gcloud compute networks create griffin-dev-vpc --subnet-mode custom
-
-gcloud compute networks subnets create griffin-dev-wp --network=griffin-dev-vpc --region us-east1 --range=192.168.16.0/20
-
-gcloud compute networks subnets create griffin-dev-mgmt --network=griffin-dev-vpc --region us-east1 --range=192.168.32.0/20
-
-```
-
-## Task - 2 : Create production VPC 
-
-```
-gsutil cp -r gs://cloud-training/gsp321/dm .
-
-cd dm
-
-sed -i s/SET_REGION/us-east1/g prod-network.yaml
-
-gcloud deployment-manager deployments create prod-network \
-    --config=prod-network.yaml
-
-cd ..
-```
-## Task - 3 : Create bastion host
-
-```
-gcloud compute instances create bastion --network-interface=network=griffin-dev-vpc,subnet=griffin-dev-mgmt  --network-interface=network=griffin-prod-vpc,subnet=griffin-prod-mgmt --tags=ssh --zone=us-east1-b
-
-gcloud compute firewall-rules create fw-ssh-dev --source-ranges=0.0.0.0/0 --target-tags ssh --allow=tcp:22 --network=griffin-dev-vpc
-
-gcloud compute firewall-rules create fw-ssh-prod --source-ranges=0.0.0.0/0 --target-tags ssh --allow=tcp:22 --network=griffin-prod-vpc
-
-```
-
-
-## Task - 4 : Create and configure Cloud SQL Instance
-
-```
-gcloud sql instances create griffin-dev-db --root-password password --region=us-east1 --database-version=MYSQL_5_7
-
-gcloud sql connect griffin-dev-db
-
-CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES ON wordpress.* TO "wp_user"@"%" IDENTIFIED BY "stormwind_rules";
-FLUSH PRIVILEGES;
-
-exit
-
-```
-
-## Task - 5 : Create Kubernetes cluster
-
-```
-gcloud container clusters create griffin-dev \
-  --network griffin-dev-vpc \
-  --subnetwork griffin-dev-wp \
-  --machine-type n1-standard-4 \
-  --num-nodes 2  \
-  --zone us-east1-b
-
-
-gcloud container clusters get-credentials griffin-dev --zone us-east1-b
-
-cd ~/
-
-gsutil cp -r gs://cloud-training/gsp321/wp-k8s .
-
-```
-
-## Task - 6 : Prepare the Kubernetes cluster
-```
-sed -i "s/username_goes_here/wp_user/g" wp-k8s/wp-env.yaml
-sed -i "s/username_goes_here/stormwind_rules/g" wp-k8s/wp-env.yaml
+export COLOUR=
 ```
 
 ```
-cd wp-k8s
-
-kubectl create -f wp-env.yaml
-
-gcloud iam service-accounts keys create key.json \
-    --iam-account=cloud-sql-proxy@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
-kubectl create secret generic cloudsql-instance-credentials \
-    --from-file key.json
-
-```
-## Task - 7 : Create a WordPress deployment
-```
-sed -i "s/YOUR_SQL_INSTANCE/griffin-dev-db/g" wp-deployment.yaml
-```
-```
-kubectl create -f wp-deployment.yaml
-kubectl create -f wp-service.yaml
-```
-Task - 8 : Enable monitoring
-- Navigation Menu -> Kubernetes Engine -> Services and Ingress -> Copy Endpoint's address.
-
-- Navigation Menu -> Monitoring -> Uptime Checks -> + CREATE UPTIME CHECK
-
-<b>Title : Wordpress Uptime</b>
-
-- Next -> Target
-
-<b>Hostname : {Endpoint's address} (without http...)<br>
-Path : /</b>
-
-- Next -> Next -> Create
-
-## Task - 9 : Provide access for an additional engineer
-```
-gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=user:$USER_NAME2 --role=roles/editor
+export VERSION=
 ```
 
+## Task1 Check Jenkins pipeline has been configured
+```
+gcloud config set compute/zone us-east1-b
+```
+```
+git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
+gcloud container clusters get-credentials jenkins-cd
+```
+```
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/  → this might not work… use the next line of code instead…
+helm repo add stable https://charts.helm.sh/stable
+helm repo update
+helm install cd stable/jenkins
+kubectl get pods
+```
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
+printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+```
+
+- On google cloud console --> Web preview --> Preview on port 8080 --> Add username as `admin` and password obtained on the last line of the ouput from previous command --> configure Credential--> Manage jenkins--> Manage credentials-->global --> adding some credentials? -->Google Service Account from metadata--> project name --> Ok
+- Create Multibranch pipeline of sample-app 
+  - Dashboard --> new item --> enter name as `sample-app` -> Select `Multibranch pipeline` 
+  - `Branch Sources` tab -> Add source --> Select `Git`
+  - Complete Task 2 meanwhile
+- Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
+- Credentials: qwiklabs service account
+- `Scan multibranch Pipeline Triggers`
+  - Check `Periodically if not otherwise run`--> Interval `1 min`
+
+## Task2 Check that Jenkins has deployed a development pipeline
+```
+cd sample-app
+kubectl create ns production
+kubectl apply -f k8s/production -n production
+kubectl apply -f k8s/canary -n production
+kubectl apply -f k8s/services -n production
+```
+```
+sed -i "s/blue/$COLOUR/g" html.go
+```
+```
+sed -i "s/1.0.0/$VERSION/g" main.go
+```
+```
+kubectl get svc
+kubectl get service gceme-frontend -n production
+```
+
+
+## Task3 Check that Jenkins has deployed a canary pipeline
+```
+git init
+git config credential.helper gcloud.sh
+git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
+```
+```
+git config --global user.email "<user email>"
+git config --global user.name "<user name>"
+```
+```
+git add .
+git commit -m "initial commit"
+git push origin master
+```
+## Task4 Check that Jenkins has merged a canary pipeline with production
+```
+git checkout -b new-feature
+```
+```
+git add Jenkinsfile html.go main.go
+git commit -m "Version 2.0.0"
+git push origin new-feature
+```
+```
+curl http://localhost:8001/api/v1/namespaces/new-feature/services/gceme-frontend:80/proxy/version
+kubectl get service gceme-frontend -n production
+```
+```
+git checkout -b canary
+git push origin canary
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+git checkout master
+git push origin master
+```
+```
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+```
+Error messages in console like `curl: (7) Failed to connect to 34.74.152.38 port 80: Connection refused`
+- So go to jenkins tab --> Click on `sample-app` in navbar
+- Check if any build in the name column is red colored and not with green check
+- If red then, click on it, on the left panel -> `Build Now`
+- Wait for it to build, it'll take some time
+- Go back to `sample-app` home page and see if it got green. 
+```
+kubectl get service gceme-frontend -n production
+```
+```
+git merge canary
+git push origin master
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+```
 
 # Congratulations you've completed your challenge lab
 ## Happy Learning
